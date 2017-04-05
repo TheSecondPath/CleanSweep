@@ -315,7 +315,9 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="CheckBox_Vipre">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Download Vipre AntiVirus"/>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="Security Check"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
