@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class WifiSetupClass {
-
+    
     String CreateWLANProfile;
     String SetSecurityParameter;
     
@@ -15,14 +15,14 @@ public class WifiSetupClass {
         this.SetSecurityParameter = "cmd.exe netsh wlan set profileparameter name=Campus_User "
                 + "authentication=WPA2PSK encryption=aes userOnly";
     
-        // Creates a process Set to null and executes the commands in the Strings
-        Process p = null;
+        // Creates a process set to null and executes the commands in the Strings
+        Process proc = null;
         try {
-            p = Runtime.getRuntime().exec(CreateWLANProfile);
-            p = Runtime.getRuntime().exec(SetSecurityParameter);
+            proc = Runtime.getRuntime().exec(CreateWLANProfile);
+            proc = Runtime.getRuntime().exec(SetSecurityParameter);
         } 
         
-        //catches IO Exceptions
+        //catches IOExceptions and logs them
         catch (IOException ex) {
             Logger.getLogger(WifiSetupClass.class.getName()).log(Level.SEVERE, null, ex);
         }
