@@ -43,14 +43,14 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButtonStudent = new javax.swing.JRadioButton();
+        jRadioButtonStaff = new javax.swing.JRadioButton();
+        jRadioButtonCampus_User = new javax.swing.JRadioButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Button_Check = new javax.swing.JButton();
+        Button_WifiConnect = new javax.swing.JButton();
         Button_Vipre = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         CheckBox_Defrag = new javax.swing.JCheckBox();
@@ -61,11 +61,11 @@ public class MainJFrame extends javax.swing.JFrame {
         CheckBox_FlushDNS = new javax.swing.JCheckBox();
         CheckBox_Cleaner = new javax.swing.JCheckBox();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
+        jMenuFacultyPage = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuFAQPage = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuVMWare = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -83,22 +83,22 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Wifi Utility"));
         jPanel1.setToolTipText("");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Student");
+        buttonGroup1.add(jRadioButtonStudent);
+        jRadioButtonStudent.setText("Student");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Staff");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonStaff);
+        jRadioButtonStaff.setText("Staff");
+        jRadioButtonStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRadioButtonStaffActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Campus_User");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonCampus_User);
+        jRadioButtonCampus_User.setText("Campus_User");
+        jRadioButtonCampus_User.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                jRadioButtonCampus_UserActionPerformed(evt);
             }
         });
 
@@ -106,10 +106,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Password:");
 
-        Button_Check.setText("Connect");
-        Button_Check.addActionListener(new java.awt.event.ActionListener() {
+        Button_WifiConnect.setText("Connect");
+        Button_WifiConnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_CheckActionPerformed(evt);
+                Button_WifiConnectActionPerformed(evt);
             }
         });
 
@@ -126,11 +126,11 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton1)
+                .addComponent(jRadioButtonStudent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(jRadioButtonStaff)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(jRadioButtonCampus_User)
                 .addContainerGap(99, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
@@ -143,7 +143,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jFormattedTextField1)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))
-                    .addComponent(Button_Check, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(Button_WifiConnect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                     .addComponent(Button_Vipre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
@@ -152,9 +152,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(jRadioButtonStudent)
+                    .addComponent(jRadioButtonStaff)
+                    .addComponent(jRadioButtonCampus_User))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,7 +164,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(56, 56, 56)
-                .addComponent(Button_Check)
+                .addComponent(Button_WifiConnect)
                 .addGap(18, 18, 18)
                 .addComponent(Button_Vipre)
                 .addContainerGap(61, Short.MAX_VALUE))
@@ -247,7 +247,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jMenu5.setText("File");
+        jMenuFacultyPage.setText("File");
 
         jMenuItem1.setText("Faculty page");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -255,27 +255,27 @@ public class MainJFrame extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenuFacultyPage.add(jMenuItem1);
 
-        jMenuItem2.setText("FAQ Page");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuFAQPage.setText("FAQ Page");
+        jMenuFAQPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuFAQPageActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem2);
+        jMenuFacultyPage.add(jMenuFAQPage);
 
-        jMenuBar2.add(jMenu5);
+        jMenuBar2.add(jMenuFacultyPage);
 
         jMenu6.setText("Downloads");
 
-        jMenuItem3.setText("VMWare Horizon");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuVMWare.setText("VMWare Horizon");
+        jMenuVMWare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuVMWareActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem3);
+        jMenu6.add(jMenuVMWare);
 
         jMenuBar2.add(jMenu6);
 
@@ -304,13 +304,13 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void jRadioButtonCampus_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCampus_UserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_jRadioButtonCampus_UserActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStaffActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jRadioButtonStaffActionPerformed
 
     private void CheckBox_DefragActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBox_DefragActionPerformed
         // TODO add your handling code here:
@@ -360,9 +360,19 @@ if (CheckBox_FlushDNS.isSelected()){
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckBox_FlushDNSActionPerformed
 
-    private void Button_CheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CheckActionPerformed
-   
-    }//GEN-LAST:event_Button_CheckActionPerformed
+    private void Button_WifiConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_WifiConnectActionPerformed
+        if (jRadioButtonCampus_User.isSelected()){
+            WifiSetupClass WS;
+            WS = new WifiSetupClass();
+            Process p = null;
+            try {
+                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANProfile);
+            } 
+            catch (IOException ex) {
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_Button_WifiConnectActionPerformed
 
     private void Button_VipreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_VipreActionPerformed
   
@@ -376,7 +386,7 @@ if (CheckBox_FlushDNS.isSelected()){
 
     }//GEN-LAST:event_Button_VipreActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuFAQPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuFAQPageActionPerformed
 if(Desktop.isDesktopSupported())
 {
         try {
@@ -387,7 +397,7 @@ if(Desktop.isDesktopSupported())
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jMenuFAQPageActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
  
@@ -403,7 +413,7 @@ if(Desktop.isDesktopSupported())
 }        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuVMWareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVMWareActionPerformed
 
         if(Desktop.isDesktopSupported())
 {
@@ -415,7 +425,7 @@ if(Desktop.isDesktopSupported())
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMenuVMWareActionPerformed
 
     /**
      * @param args the command line arguments
@@ -453,9 +463,9 @@ if(Desktop.isDesktopSupported())
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Button_Check;
     private javax.swing.JButton Button_Execute;
     private javax.swing.JButton Button_Vipre;
+    private javax.swing.JButton Button_WifiConnect;
     private javax.swing.JCheckBox CheckBox_Cleaner;
     private javax.swing.JCheckBox CheckBox_Defrag;
     private javax.swing.JCheckBox CheckBox_DiskCheck;
@@ -470,18 +480,18 @@ if(Desktop.isDesktopSupported())
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuFAQPage;
+    private javax.swing.JMenu jMenuFacultyPage;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuVMWare;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButtonCampus_User;
+    private javax.swing.JRadioButton jRadioButtonStaff;
+    private javax.swing.JRadioButton jRadioButtonStudent;
     // End of variables declaration//GEN-END:variables
 }

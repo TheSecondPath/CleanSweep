@@ -42,7 +42,7 @@
     </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
+        <Menu class="javax.swing.JMenu" name="jMenuFacultyPage">
           <Properties>
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
@@ -55,12 +55,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuFAQPage">
               <Properties>
                 <Property name="text" type="java.lang.String" value="FAQ Page"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuFAQPageActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -70,12 +70,12 @@
             <Property name="text" type="java.lang.String" value="Downloads"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuVMWare">
               <Properties>
                 <Property name="text" type="java.lang.String" value="VMWare Horizon"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuVMWareActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -144,11 +144,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonStudent" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonStaff" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonCampus_User" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="99" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -165,7 +165,7 @@
                               <Component id="jPasswordField1" pref="132" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="Button_Check" alignment="0" pref="219" max="32767" attributes="0"/>
+                      <Component id="Button_WifiConnect" alignment="0" pref="219" max="32767" attributes="0"/>
                       <Component id="Button_Vipre" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="79" max="32767" attributes="0"/>
@@ -177,9 +177,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonStaff" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonCampus_User" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -192,7 +192,7 @@
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="Button_Check" min="-2" max="-2" attributes="0"/>
+                  <Component id="Button_WifiConnect" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Button_Vipre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="61" max="32767" attributes="0"/>
@@ -201,7 +201,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonStudent">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -209,7 +209,7 @@
             <Property name="text" type="java.lang.String" value="Student"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonStaff">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -217,10 +217,10 @@
             <Property name="text" type="java.lang.String" value="Staff"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonStaffActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonCampus_User">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -228,7 +228,7 @@
             <Property name="text" type="java.lang.String" value="Campus_User"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCampus_UserActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPasswordField1">
@@ -245,12 +245,12 @@
             <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Button_Check">
+        <Component class="javax.swing.JButton" name="Button_WifiConnect">
           <Properties>
             <Property name="text" type="java.lang.String" value="Connect"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_CheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_WifiConnectActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Button_Vipre">
