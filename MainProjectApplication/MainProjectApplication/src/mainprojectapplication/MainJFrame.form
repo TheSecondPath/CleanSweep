@@ -132,7 +132,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="Button_Static" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_Static" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -143,7 +143,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="Button_DHCP" min="-2" max="-2" attributes="0"/>
+              <Component id="jButton_DHCP" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -155,10 +155,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="DNSTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Button_DHCP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_DHCP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Button_Static" min="-2" max="-2" attributes="0"/>
+              <Component id="jButton_Static" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPanel1" max="32767" attributes="0"/>
@@ -184,11 +184,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonStudent" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonStaff" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonCampus_User" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="99" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -205,8 +205,8 @@
                               <Component id="jPasswordField1" pref="132" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="Button_Check" alignment="0" pref="219" max="32767" attributes="0"/>
-                      <Component id="Button_Vipre" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButton_Connect" alignment="0" pref="219" max="32767" attributes="0"/>
+                      <Component id="jButton_Vipre" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
               </Group>
@@ -217,9 +217,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonStaff" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonCampus_User" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -232,16 +232,16 @@
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="Button_Check" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Connect" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Button_Vipre" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Vipre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="55" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonStudent">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -249,7 +249,7 @@
             <Property name="text" type="java.lang.String" value="Student"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonStaff">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -257,10 +257,10 @@
             <Property name="text" type="java.lang.String" value="Staff"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonStaffActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonCampus_User">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -268,7 +268,7 @@
             <Property name="text" type="java.lang.String" value="Campus_User"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCampus_UserActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPasswordField1">
@@ -285,20 +285,20 @@
             <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Button_Check">
+        <Component class="javax.swing.JButton" name="jButton_Connect">
           <Properties>
             <Property name="text" type="java.lang.String" value="Connect"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_CheckActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_ConnectActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Button_Vipre">
+        <Component class="javax.swing.JButton" name="jButton_Vipre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Vipre Antivirus Software "/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_VipreActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_VipreActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -420,20 +420,20 @@
         <Property name="text" type="java.lang.String" value="Enter DNS IP Address"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Button_Static">
+    <Component class="javax.swing.JButton" name="jButton_Static">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_StaticActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_StaticActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Button_DHCP">
+    <Component class="javax.swing.JButton" name="jButton_DHCP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Re-Enable DHCP"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_DHCPActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_DHCPActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
