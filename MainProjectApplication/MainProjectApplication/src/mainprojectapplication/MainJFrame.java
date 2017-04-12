@@ -362,6 +362,7 @@ if (CheckBox_FlushDNS.isSelected()){
 
     private void Button_WifiConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_WifiConnectActionPerformed
         if (jRadioButtonCampus_User.isSelected()){
+//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/default-server.xml‌​");
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
