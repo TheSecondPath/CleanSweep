@@ -42,15 +42,16 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButtonStudent = new javax.swing.JRadioButton();
-        jRadioButtonStaff = new javax.swing.JRadioButton();
-        jRadioButtonCampus_User = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Button_WifiConnect = new javax.swing.JButton();
+        Button_Check = new javax.swing.JButton();
         Button_Vipre = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         CheckBox_Defrag = new javax.swing.JCheckBox();
@@ -60,12 +61,16 @@ public class MainJFrame extends javax.swing.JFrame {
         Button_Execute = new javax.swing.JButton();
         CheckBox_FlushDNS = new javax.swing.JCheckBox();
         CheckBox_Cleaner = new javax.swing.JCheckBox();
+        DNSTextField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        Button_Static = new javax.swing.JButton();
+        Button_DHCP = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenuFacultyPage = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuFAQPage = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuVMWare = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -77,28 +82,30 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenu4.setText("Edit");
         jMenuBar1.add(jMenu4);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fairmont State Wifi Setup Utility");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Wifi Utility"));
         jPanel1.setToolTipText("");
 
-        buttonGroup1.add(jRadioButtonStudent);
-        jRadioButtonStudent.setText("Student");
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Student");
 
-        buttonGroup1.add(jRadioButtonStaff);
-        jRadioButtonStaff.setText("Staff");
-        jRadioButtonStaff.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Staff");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonStaffActionPerformed(evt);
+                jRadioButton2ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButtonCampus_User);
-        jRadioButtonCampus_User.setText("Campus_User");
-        jRadioButtonCampus_User.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Campus_User");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonCampus_UserActionPerformed(evt);
+                jRadioButton3ActionPerformed(evt);
             }
         });
 
@@ -106,10 +113,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Password:");
 
-        Button_WifiConnect.setText("Connect");
-        Button_WifiConnect.addActionListener(new java.awt.event.ActionListener() {
+        Button_Check.setText("Connect");
+        Button_Check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_WifiConnectActionPerformed(evt);
+                Button_CheckActionPerformed(evt);
             }
         });
 
@@ -126,14 +133,14 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButtonStudent)
+                .addComponent(jRadioButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButtonStaff)
+                .addComponent(jRadioButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButtonCampus_User)
+                .addComponent(jRadioButton3)
                 .addContainerGap(99, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -143,18 +150,18 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jFormattedTextField1)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))
-                    .addComponent(Button_WifiConnect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(Button_Check, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                     .addComponent(Button_Vipre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(79, 79, 79))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonStudent)
-                    .addComponent(jRadioButtonStaff)
-                    .addComponent(jRadioButtonCampus_User))
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton3))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,10 +171,10 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(56, 56, 56)
-                .addComponent(Button_WifiConnect)
+                .addComponent(Button_Check)
                 .addGap(18, 18, 18)
                 .addComponent(Button_Vipre)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Clean Sweep"));
@@ -186,9 +193,9 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Utility to clean up junk files and");
+        jLabel3.setText("Utility to clean up junk files");
 
-        jLabel4.setText("cache files");
+        jLabel4.setText("and cache files");
 
         Button_Execute.setText("Execute");
         Button_Execute.addActionListener(new java.awt.event.ActionListener() {
@@ -213,28 +220,29 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CheckBox_FlushDNS)
-                            .addComponent(CheckBox_Defrag)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(CheckBox_Defrag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Button_Execute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(CheckBox_Cleaner)
-                            .addComponent(CheckBox_DiskCheck)
-                            .addComponent(Button_Execute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                            .addComponent(CheckBox_DiskCheck))))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addComponent(jLabel4)
-                .addGap(51, 51, 51)
+                .addGap(52, 52, 52)
                 .addComponent(CheckBox_Defrag)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CheckBox_Cleaner)
@@ -242,12 +250,28 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(CheckBox_DiskCheck)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CheckBox_FlushDNS)
-                .addGap(35, 35, 35)
+                .addGap(36, 36, 36)
                 .addComponent(Button_Execute)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
-        jMenuFacultyPage.setText("File");
+        jLabel5.setText("Enter DNS IP Address");
+
+        Button_Static.setText("Enter");
+        Button_Static.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_StaticActionPerformed(evt);
+            }
+        });
+
+        Button_DHCP.setText("Re-Enable DHCP");
+        Button_DHCP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_DHCPActionPerformed(evt);
+            }
+        });
+
+        jMenu5.setText("File");
 
         jMenuItem1.setText("Faculty page");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -255,27 +279,27 @@ public class MainJFrame extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenuFacultyPage.add(jMenuItem1);
+        jMenu5.add(jMenuItem1);
 
-        jMenuFAQPage.setText("FAQ Page");
-        jMenuFAQPage.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("FAQ Page");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuFAQPageActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenuFacultyPage.add(jMenuFAQPage);
+        jMenu5.add(jMenuItem2);
 
-        jMenuBar2.add(jMenuFacultyPage);
+        jMenuBar2.add(jMenu5);
 
         jMenu6.setText("Downloads");
 
-        jMenuVMWare.setText("VMWare Horizon");
-        jMenuVMWare.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setText("VMWare Horizon");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuVMWareActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuVMWare);
+        jMenu6.add(jMenuItem3);
 
         jMenuBar2.add(jMenu6);
 
@@ -286,16 +310,36 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(Button_Static)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(DNSTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Button_DHCP)
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DNSTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(Button_DHCP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Button_Static)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -304,13 +348,13 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButtonCampus_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCampus_UserActionPerformed
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonCampus_UserActionPerformed
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
 
-    private void jRadioButtonStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStaffActionPerformed
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonStaffActionPerformed
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void CheckBox_DefragActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBox_DefragActionPerformed
         // TODO add your handling code here:
@@ -360,20 +404,9 @@ if (CheckBox_FlushDNS.isSelected()){
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckBox_FlushDNSActionPerformed
 
-    private void Button_WifiConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_WifiConnectActionPerformed
-        if (jRadioButtonCampus_User.isSelected()){
-//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/default-server.xml‌​");
-            WifiSetupClass WS;
-            WS = new WifiSetupClass();
-            Process p = null;
-            try {
-                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANProfile);
-            } 
-            catch (IOException ex) {
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_Button_WifiConnectActionPerformed
+    private void Button_CheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_CheckActionPerformed
+   
+    }//GEN-LAST:event_Button_CheckActionPerformed
 
     private void Button_VipreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_VipreActionPerformed
   
@@ -387,7 +420,7 @@ if (CheckBox_FlushDNS.isSelected()){
 
     }//GEN-LAST:event_Button_VipreActionPerformed
 
-    private void jMenuFAQPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuFAQPageActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 if(Desktop.isDesktopSupported())
 {
         try {
@@ -398,7 +431,7 @@ if(Desktop.isDesktopSupported())
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-    }//GEN-LAST:event_jMenuFAQPageActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
  
@@ -414,7 +447,7 @@ if(Desktop.isDesktopSupported())
 }        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuVMWareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVMWareActionPerformed
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 
         if(Desktop.isDesktopSupported())
 {
@@ -426,7 +459,43 @@ if(Desktop.isDesktopSupported())
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
-    }//GEN-LAST:event_jMenuVMWareActionPerformed
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void Button_StaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_StaticActionPerformed
+        String IP = DNSTextField.getSelectedText();
+        String StaticDNS = "cmd.exe /c start cmd.exe /c start interface ip set dns \"Local Area Connection\" static ";
+ Process p = null;
+        try {
+// Executes All String Commands
+
+            p = Runtime.getRuntime().exec(StaticDNS + IP);
+         
+            
+
+            //runs null 
+        } catch (IOException ex) {
+            //catches IO Exceptions
+            Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_StaticActionPerformed
+
+    private void Button_DHCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_DHCPActionPerformed
+        
+        String DHCP = "cmd.exe /c start cmd.exe /c start interface ip set address \"Local Area Connection\" dhcp ";
+ Process p = null;
+        try {
+// Executes All String Commands
+
+            p = Runtime.getRuntime().exec(DHCP);
+         
+            
+
+            //runs null 
+        } catch (IOException ex) {
+            //catches IO Exceptions
+            Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_DHCPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,35 +533,40 @@ if(Desktop.isDesktopSupported())
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_Check;
+    private javax.swing.JButton Button_DHCP;
     private javax.swing.JButton Button_Execute;
+    private javax.swing.JButton Button_Static;
     private javax.swing.JButton Button_Vipre;
-    private javax.swing.JButton Button_WifiConnect;
     private javax.swing.JCheckBox CheckBox_Cleaner;
     private javax.swing.JCheckBox CheckBox_Defrag;
     private javax.swing.JCheckBox CheckBox_DiskCheck;
     private javax.swing.JCheckBox CheckBox_FlushDNS;
+    private javax.swing.JTextField DNSTextField;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuFAQPage;
-    private javax.swing.JMenu jMenuFacultyPage;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuVMWare;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButtonCampus_User;
-    private javax.swing.JRadioButton jRadioButtonStaff;
-    private javax.swing.JRadioButton jRadioButtonStudent;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     // End of variables declaration//GEN-END:variables
 }
