@@ -518,13 +518,14 @@ if(Desktop.isDesktopSupported())
 
     private void jButton_DHCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DHCPActionPerformed
         
-        String DHCP = "cmd.exe /c start cmd.exe /c start interface ip set address \"Local Area Connection\" dhcp ";
+        String IPV4DHCP = "cmd.exe /c start cmd.exe /c start netsh interface ipv4 set dnsservers name=\"Wi-Fi\" dhcp";
+        String IPV6DHCP = "cmd.exe /c start cmd.exe /c start netsh interface ipv4 set dnsservers name=\"Wi-Fi\" dhcp";
  Process p = null;
         try {
 // Executes All String Commands
 
-            p = Runtime.getRuntime().exec(DHCP);
-         
+            p = Runtime.getRuntime().exec(IPV4DHCP);
+            p = Runtime.getRuntime().exec(IPV6DHCP);
             
 
             //runs null 
