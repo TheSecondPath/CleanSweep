@@ -12,8 +12,12 @@ import java.util.logging.Logger;
 
 public class WifiSetupClass {
     
-    static final String FILENAME = "C:\\Wi-Fi-Campus_User.xml";
-    static String CreateWLANProfile = "cmd.exe /c netsh wlan add profile filename=" + FILENAME;
+    static final String StudentFilepath = "C:\\Wi-Fi-Student.xml";
+    static final String StaffFilepath = "C:\\Wi-Fi-Staff.xml";
+    static final String Campus_UserFilepath = "C:\\Wi-Fi-Campus_User.xml";
+    static String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + StudentFilepath;
+    static String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + StaffFilepath;
+    static String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + Campus_UserFilepath;
     static String SetUsernamePassword;
     
 //    public WifiSetupClass() {

@@ -405,13 +405,39 @@ if (CheckBox_FlushDNS.isSelected()){
     }//GEN-LAST:event_CheckBox_FlushDNSActionPerformed
 
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
-   if (jRadioButtonCampus_User.isSelected()){
-//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/default-server.xml‌​");
+    if (jRadioButtonStudent.isSelected()){
+//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Student.xml‌​");
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
             try {
-                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANProfile);
+                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStudent);
+            } 
+            catch (IOException ex) {
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    
+     if (jRadioButtonStaff.isSelected()){
+//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
+            WifiSetupClass WS;
+            WS = new WifiSetupClass();
+            Process p = null;
+            try {
+                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStaff);
+            } 
+            catch (IOException ex) {
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+     
+      if (jRadioButtonCampus_User.isSelected()){
+//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Campus_User.xml‌​");
+            WifiSetupClass WS;
+            WS = new WifiSetupClass();
+            Process p = null;
+            try {
+                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANCampus_User);
             } 
             catch (IOException ex) {
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
