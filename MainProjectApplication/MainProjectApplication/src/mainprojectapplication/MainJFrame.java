@@ -5,18 +5,22 @@
  */
 package mainprojectapplication;
 
+//import com.sun.xml.internal.ws.api.ResourceLoader;
 import java.awt.AWTException;
 import java.awt.Desktop;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 /**
  *
- * @author Server
+ * @author Jeffrey Thompson
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -405,11 +409,15 @@ if (CheckBox_FlushDNS.isSelected()){
     }//GEN-LAST:event_CheckBox_FlushDNSActionPerformed
 
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
-    if (jRadioButtonStudent.isSelected()){
-//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Student.xml‌​");
+        if (jRadioButtonStudent.isSelected()){
+        
+            //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
+            //currently all xml files must be placed in the root of the c: to run correctly
+            //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Student.xml‌​");
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
+            //tries to execute the netsh command to add the WLAN profile
             try {
                 p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStudent);
             } 
@@ -418,11 +426,15 @@ if (CheckBox_FlushDNS.isSelected()){
             }
         }
     
-     if (jRadioButtonStaff.isSelected()){
-//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
+        if (jRadioButtonStaff.isSelected()){
+        
+            //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use - incomplete feature
+            //currently all xml files must be placed in the root of the c: to run correctly
+            //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
+            //tries to execute the netsh command to add the WLAN profile
             try {
                 p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStaff);
             } 
@@ -431,11 +443,16 @@ if (CheckBox_FlushDNS.isSelected()){
             }
         }
      
-      if (jRadioButtonCampus_User.isSelected()){
-//            ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Campus_User.xml‌​");
+        if (jRadioButtonCampus_User.isSelected()){
+            
+            //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use - incomplete feature
+            //currently all xml files must be placed in the root of the c: to run correctly
+            //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Campus_User.xml‌​");
+            //Files.copy(in, path, cos);
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
+            //tries to execute the netsh command to add the WLAN profile
             try {
                 p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANCampus_User);
             } 
