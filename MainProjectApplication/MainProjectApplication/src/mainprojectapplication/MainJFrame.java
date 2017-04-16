@@ -363,7 +363,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void Button_ExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_ExecuteActionPerformed
 if(CheckBox_Cleaner.isSelected()){
     try {
-       
+       //runs diskcleanerclass if cleanerbox is selected
         DiskCleanerClass DC = new DiskCleanerClass();
         Button_Execute.setEnabled(true);
     
@@ -372,6 +372,7 @@ if(CheckBox_Cleaner.isSelected()){
     }
 }
 if (CheckBox_Defrag.isSelected()){
+    //runs diskdefragclass if defragbox is selected
     DiskDefragClass DF = new DiskDefragClass();
     
   Button_Execute.setEnabled(true);
@@ -379,9 +380,10 @@ if (CheckBox_Defrag.isSelected()){
 }
 if (CheckBox_DiskCheck.isSelected()) {
     CheckerClass CC = new CheckerClass();
-            
+           //runs diskcheckerclass if checkerbox is selected 
 }
 if (CheckBox_FlushDNS.isSelected()){
+    //runs flushDNSclass if flushDNSbox is selected
     FlushDNSClass FDNS = new FlushDNSClass();
     Process p = null;
      String Renew = "cmd.exe /c start cmd.exe /c start ipconfig /renew";
@@ -448,7 +450,7 @@ if (CheckBox_FlushDNS.isSelected()){
     private void jButton_VipreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VipreActionPerformed
   
          try {
-            VipreLinkClass Vipre = new VipreLinkClass();
+            VipreLinkClass Vipre = new VipreLinkClass();//initialized ViperlinkClass
         } catch (URISyntaxException | IOException ex) {
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -461,6 +463,7 @@ if (CheckBox_FlushDNS.isSelected()){
 if(Desktop.isDesktopSupported())
 {
         try {
+            //opens tech commons webpage in default browser
             Desktop.getDesktop().browse(new URI("https://www.fairmontstate.edu/it/tech-commons/information-technology-getting-started-guide-students"));
         } catch (IOException ex) {
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -475,6 +478,7 @@ if(Desktop.isDesktopSupported())
     if(Desktop.isDesktopSupported())
 {
         try {
+            //opens faculty page in default browser
             Desktop.getDesktop().browse(new URI("https://www.fairmontstate.edu/schoolofbusiness/faculty-staff"));
         } catch (IOException ex) {
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -489,6 +493,7 @@ if(Desktop.isDesktopSupported())
         if(Desktop.isDesktopSupported())
 {
         try {
+            //opens download page for VMWare Horizon
             Desktop.getDesktop().browse(new URI("https://my.vmware.com/web/vmware/info?slug=desktop_end_user_computing/vmware_horizon_clients/4_0"));
         } catch (IOException ex) {
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
