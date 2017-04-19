@@ -415,7 +415,7 @@ if (CheckBox_FlushDNS.isSelected()){
         
             //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Student.xml‌​");
+            //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Student.xml‌​");
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -432,8 +432,8 @@ if (CheckBox_FlushDNS.isSelected()){
         
             //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
-//            Files.copy(resourceAsStream, "c:\\", REPLACE_EXISTING);
+            //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
+            //Files.copy(resourceAsStream, "c:\\", REPLACE_EXISTING);
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -450,8 +450,8 @@ if (CheckBox_FlushDNS.isSelected()){
             
             //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            InputStream XMLAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Campus_User.xml‌​");
-//            Files.copy(XMLAsStream, "C:\\ProgramData\\TEMP", REPLACE_EXISTING);
+            //InputStream XMLAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Campus_User.xml‌​");
+            //Files.copy(XMLAsStream, "C:\\ProgramData\\TEMP", REPLACE_EXISTING);
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
