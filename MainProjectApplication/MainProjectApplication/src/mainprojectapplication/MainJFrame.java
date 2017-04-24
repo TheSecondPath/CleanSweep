@@ -5,7 +5,7 @@
  */
 package mainprojectapplication;
 
-import com.sun.xml.internal.ws.api.ResourceLoader;
+import static com.sun.org.apache.bcel.internal.util.SecuritySupport.getResourceAsStream;
 import java.awt.AWTException;
 import java.awt.Desktop;
 import java.io.IOException;
@@ -13,6 +13,8 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -433,7 +435,7 @@ if (CheckBox_FlushDNS.isSelected()){
             //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
             //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
-            //Files.copy(resourceAsStream, "c:\\", REPLACE_EXISTING);
+            //Files.copy(".\\src\\Wi-Fi-Staff.xml", "c:\\", REPLACE_EXISTING);
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -450,16 +452,25 @@ if (CheckBox_FlushDNS.isSelected()){
             
             //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            //InputStream XMLAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Campus_User.xml‌​");
-            //Files.copy(XMLAsStream, "C:\\ProgramData\\TEMP", REPLACE_EXISTING);
+            InputStream XMLAsStream = getResourceAsStream("Wi-Fi-Campus_User.xml‌​");
+            String FileLocation = "C:/ProgramData/TEMP";
+            Path OutputPath = Paths.get(FileLocation);
+            
+            
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
             //tries to execute the netsh command to add the WLAN profile
             try {
+                Files.copy(XMLAsStream, OutputPath, REPLACE_EXISTING);
                 p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANCampus_User);
             } 
+            catch (NullPointerException ex) {
+                System.out.println("Error " + ex.getMessage());
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             catch (IOException ex) {
+                System.out.println("Error " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
