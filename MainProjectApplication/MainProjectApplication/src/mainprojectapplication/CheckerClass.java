@@ -30,6 +30,7 @@ public class CheckerClass {
             //runs null 
         } catch (IOException ex) {
             //catches IO Exceptions
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

@@ -13,6 +13,7 @@ public class DiskDefragClass {
             Process process = runTime.exec("dfrgui.exe");
 
         } catch (IOException e) {
+            System.out.println("Error " + e.getMessage());
             e.printStackTrace();
         }
     }

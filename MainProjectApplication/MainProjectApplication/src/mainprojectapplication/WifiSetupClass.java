@@ -1,7 +1,6 @@
 
 package mainprojectapplication;
 
-import com.sun.xml.internal.ws.api.ResourceLoader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -29,7 +28,6 @@ public class WifiSetupClass {
 //        
 //            //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
 //            //currently all xml files must be placed in the root of the c: to run correctly
-//            InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Student.xml‌​");
 //            WifiSetupClass WS;
 //            WS = new WifiSetupClass();
 //            Process p = null;
@@ -38,7 +36,8 @@ public class WifiSetupClass {
 //                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStudent);
 //            } 
 //            catch (IOException ex) {
-//                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+//            System.out.println("Error " + ex.getMessage());    
+//            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }
 //    
@@ -46,7 +45,6 @@ public class WifiSetupClass {
 //        
 //            //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use - incomplete feature
 //            //currently all xml files must be placed in the root of the c: to run correctly
-//            InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
 //            Files.copy(resourceAsStream, "c:/", REPLACE_EXISTING);
 //            WifiSetupClass WS;
 //            WS = new WifiSetupClass();
@@ -56,6 +54,7 @@ public class WifiSetupClass {
 //                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStaff);
 //            } 
 //            catch (IOException ex) {
+//                System.out.println("Error " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }
@@ -64,7 +63,6 @@ public class WifiSetupClass {
 //            
 //            //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use - incomplete feature
 //            //currently all xml files must be placed in the root of the c: to run correctly
-//            InputStream XMLAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Campus_User.xml‌​");
 //            Files.copy(XMLAsStream, "c:\\", REPLACE_EXISTING);
 //            WifiSetupClass WS;
 //            WS = new WifiSetupClass();
@@ -74,6 +72,7 @@ public class WifiSetupClass {
 //                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANCampus_User);
 //            } 
 //            catch (IOException ex) {
+//                System.out.println("Error " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }

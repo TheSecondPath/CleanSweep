@@ -5,11 +5,9 @@
  */
 package mainprojectapplication;
 
-import static com.sun.org.apache.bcel.internal.util.SecuritySupport.getResourceAsStream;
 import java.awt.AWTException;
 import java.awt.Desktop;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -374,6 +372,7 @@ if(CheckBox_Cleaner.isSelected()){
         Button_Execute.setEnabled(true);
     
     } catch (AWTException ex) {
+        System.out.println("Error " + ex.getMessage());
         Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
@@ -396,6 +395,7 @@ if (CheckBox_FlushDNS.isSelected()){
     try {
         p = Runtime.getRuntime().exec(Renew);
     } catch (IOException ex) {
+        System.out.println("Error " + ex.getMessage());
         Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
     }
    Button_Execute.setEnabled(false);
@@ -417,7 +417,6 @@ if (CheckBox_FlushDNS.isSelected()){
         
             //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Student.xml‌​");
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -426,6 +425,7 @@ if (CheckBox_FlushDNS.isSelected()){
                 p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStudent);
             } 
             catch (IOException ex) {
+                System.out.println("Error " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -434,8 +434,6 @@ if (CheckBox_FlushDNS.isSelected()){
         
             //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            //InputStream resourceAsStream = ResourceLoader.class.getResourceAsStream("/src/main/resource‌​s/Wi-Fi-Staff.xml‌​");
-            //Files.copy(".\\src\\Wi-Fi-Staff.xml", "c:\\", REPLACE_EXISTING);
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -444,6 +442,7 @@ if (CheckBox_FlushDNS.isSelected()){
                 p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStaff);
             } 
             catch (IOException ex) {
+                System.out.println("Error " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -452,9 +451,10 @@ if (CheckBox_FlushDNS.isSelected()){
             
             //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            InputStream XMLAsStream = getResourceAsStream("Wi-Fi-Campus_User.xml‌​");
-            String FileLocation = "C:/ProgramData/TEMP";
-            Path OutputPath = Paths.get(FileLocation);
+            String InputLocation = "/Wi-Fi-Campus_User.xml‌​";
+            String OutputLocation = "C:/ProgramData/TEMP";
+            Path InputPath = Paths.get(InputLocation);
+            Path OutputPath = Paths.get(OutputLocation);
             
             
             WifiSetupClass WS;
@@ -462,7 +462,7 @@ if (CheckBox_FlushDNS.isSelected()){
             Process p = null;
             //tries to execute the netsh command to add the WLAN profile
             try {
-                Files.copy(XMLAsStream, OutputPath, REPLACE_EXISTING);
+                Files.copy(InputPath, OutputPath, REPLACE_EXISTING);
                 p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANCampus_User);
             } 
             catch (NullPointerException ex) {
@@ -481,6 +481,7 @@ if (CheckBox_FlushDNS.isSelected()){
          try {
             VipreLinkClass Vipre = new VipreLinkClass();//initialized ViperlinkClass
         } catch (URISyntaxException | IOException ex) {
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -495,8 +496,10 @@ if(Desktop.isDesktopSupported())
             //opens tech commons webpage in default browser
             Desktop.getDesktop().browse(new URI("https://www.fairmontstate.edu/it/tech-commons/information-technology-getting-started-guide-students"));
         } catch (IOException ex) {
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (URISyntaxException ex) {
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
@@ -510,8 +513,10 @@ if(Desktop.isDesktopSupported())
             //opens faculty page in default browser
             Desktop.getDesktop().browse(new URI("https://www.fairmontstate.edu/schoolofbusiness/faculty-staff"));
         } catch (IOException ex) {
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (URISyntaxException ex) {
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 }        // TODO add your handling code here:
@@ -525,8 +530,10 @@ if(Desktop.isDesktopSupported())
             //opens download page for VMWare Horizon
             Desktop.getDesktop().browse(new URI("https://my.vmware.com/web/vmware/info?slug=desktop_end_user_computing/vmware_horizon_clients/4_0"));
         } catch (IOException ex) {
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (URISyntaxException ex) {
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
@@ -546,6 +553,7 @@ if(Desktop.isDesktopSupported())
             //runs null 
         } catch (IOException ex) {
             //catches IO Exceptions
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton_StaticActionPerformed
@@ -565,6 +573,7 @@ if(Desktop.isDesktopSupported())
             //runs null 
         } catch (IOException ex) {
             //catches IO Exceptions
+            System.out.println("Error " + ex.getMessage());
             Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton_DHCPActionPerformed
