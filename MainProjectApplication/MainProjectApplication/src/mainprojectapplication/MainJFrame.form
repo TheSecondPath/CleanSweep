@@ -201,6 +201,7 @@
               <ComponentRef name="buttonGroupNetworkSelect"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Student"/>
+            <Property name="toolTipText" type="java.lang.String" value="Select to connect to Student Wi-Fi."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButtonStaff">
@@ -209,6 +210,7 @@
               <ComponentRef name="buttonGroupNetworkSelect"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Staff"/>
+            <Property name="toolTipText" type="java.lang.String" value="Select to connect to Staff Wi-Fi."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonStaffActionPerformed"/>
@@ -220,6 +222,7 @@
               <ComponentRef name="buttonGroupNetworkSelect"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Campus_User"/>
+            <Property name="toolTipText" type="java.lang.String" value="Select to connect to Campus_User Wi-Fi."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCampus_UserActionPerformed"/>

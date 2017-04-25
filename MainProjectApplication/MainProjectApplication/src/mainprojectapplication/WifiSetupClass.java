@@ -1,12 +1,8 @@
 
 package mainprojectapplication;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  *
@@ -14,16 +10,23 @@ import java.util.logging.Logger;
  */
 
 public class WifiSetupClass {
+
+    static String StudentInputPath = ("Wi-Fi-Student.xml");
+    static String StaffInputPath = ("Wi-Fi-Staff.xml");
+    static String Campus_UserInputPath = ("Wi-Fi-Campus_User.xml");
+    String StringTempDir = System.getProperty("java.io.tmpdir");
+    Path StudentTempDir = Paths.get(StringTempDir + StudentInputPath);
+    Path StaffTempDir = Paths.get(StringTempDir + StaffInputPath);
+    Path Campus_UserTempDir = Paths.get(StringTempDir + Campus_UserInputPath);
+//    static final String StudentFilepath = "C:\\Wi-Fi-Student.xml";
+//    static final String StaffFilepath = "C:\\Wi-Fi-Staff.xml";
+//    static final String Campus_UserFilepath = "C:\\Wi-Fi-Campus_User.xml";
+//    static String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + "\\" + Campus_UserInputPath;
+//    static String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + "\\" + StudentInputPath;
+//    static String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + "\\" + StaffInputPath;
+
     
-    static final String StudentFilepath = "C:\\Wi-Fi-Student.xml";
-    static final String StaffFilepath = "C:\\Wi-Fi-Staff.xml";
-    static final String Campus_UserFilepath = "C:\\Wi-Fi-Campus_User.xml";
-    static String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + StudentFilepath;
-    static String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + StaffFilepath;
-    static String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + Campus_UserFilepath;
-    static String SetUsernamePassword;
-    
-//    public WifiSetupClass extends MainJFrame(){
+//    public WifiSetupClass() 
 //        if (MainJFrame.jRadioButtonStudent.isSelected()){
 //        
 //            //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature

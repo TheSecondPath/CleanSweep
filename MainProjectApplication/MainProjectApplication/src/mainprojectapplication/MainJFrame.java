@@ -7,12 +7,12 @@ package mainprojectapplication;
 
 import java.awt.AWTException;
 import java.awt.Desktop;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,9 +78,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         buttonGroupNetworkSelect.add(jRadioButtonStudent);
         jRadioButtonStudent.setText("Student");
+        jRadioButtonStudent.setToolTipText("Select to connect to Student Wi-Fi.");
 
         buttonGroupNetworkSelect.add(jRadioButtonStaff);
         jRadioButtonStaff.setText("Staff");
+        jRadioButtonStaff.setToolTipText("Select to connect to Staff Wi-Fi.");
         jRadioButtonStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonStaffActionPerformed(evt);
@@ -89,6 +91,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         buttonGroupNetworkSelect.add(jRadioButtonCampus_User);
         jRadioButtonCampus_User.setText("Campus_User");
+        jRadioButtonCampus_User.setToolTipText("Select to connect to Campus_User Wi-Fi.");
         jRadioButtonCampus_User.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonCampus_UserActionPerformed(evt);
@@ -413,6 +416,7 @@ if (CheckBox_FlushDNS.isSelected()){
     }//GEN-LAST:event_CheckBox_FlushDNSActionPerformed
 
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
+        
         if (jRadioButtonStudent.isSelected()){
         
             //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
@@ -422,10 +426,47 @@ if (CheckBox_FlushDNS.isSelected()){
             Process p = null;
             //tries to execute the netsh command to add the WLAN profile
             try {
-                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStudent);
+                System.out.println("StringTempDir = " + WS.StringTempDir);
+                File file = new File(WS.StudentInputPath);
+                FileInputStream fis = null;
+
+                try {
+                    fis = new FileInputStream(file);
+
+                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+
+                    int content;
+                    while ((content = fis.read()) != -1) {
+                        // Copies the stream to a file in the Temp folder
+                        Files.copy(fis, WS.StudentTempDir, REPLACE_EXISTING);;
+                    }
+
+                } 
+                catch (IOException e) {
+                e.printStackTrace();
+                } 
+                finally {
+
+                    try {
+                        if (fis != null)
+                        fis.close();
+                    } 
+                    catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+        
+                String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + WS.StudentTempDir;
+                System.out.println("CreateWLANStudent = " + CreateWLANStudent);
+                p = Runtime.getRuntime().exec(CreateWLANStudent);
+                System.out.println("Process p = " + p.toString());
             } 
+            catch (NullPointerException ex) {
+                System.out.println("Error NullPointerException " + ex.getMessage());
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             catch (IOException ex) {
-                System.out.println("Error " + ex.getMessage());
+                System.out.println("Error IOException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -439,10 +480,47 @@ if (CheckBox_FlushDNS.isSelected()){
             Process p = null;
             //tries to execute the netsh command to add the WLAN profile
             try {
-                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANStaff);
+                System.out.println("StringTempDir = " + WS.StringTempDir);
+                File file = new File(WS.StaffInputPath);
+                FileInputStream fis = null;
+
+                try {
+                    fis = new FileInputStream(file);
+
+                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+
+                    int content;
+                    while ((content = fis.read()) != -1) {
+                        // Copies the stream to a file in the Temp folder
+                        Files.copy(fis, WS.StaffTempDir, REPLACE_EXISTING);;
+                    }
+
+                } 
+                catch (IOException e) {
+                e.printStackTrace();
+                } 
+                finally {
+
+                    try {
+                        if (fis != null)
+                        fis.close();
+                    } 
+                    catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+        
+                String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + WS.StaffTempDir;
+                System.out.println("CreateWLANStaff = " + CreateWLANStaff);
+                p = Runtime.getRuntime().exec(CreateWLANStaff);
+                System.out.println("Process p = " + p.toString());
             } 
+            catch (NullPointerException ex) {
+                System.out.println("Error NullPointerException " + ex.getMessage());
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             catch (IOException ex) {
-                System.out.println("Error " + ex.getMessage());
+                System.out.println("Error IOException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -451,26 +529,53 @@ if (CheckBox_FlushDNS.isSelected()){
             
             //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use - incomplete feature
             //currently all xml files must be placed in the root of the c: to run correctly
-            String InputLocation = "/Wi-Fi-Campus_User.xml‌​";
-            String OutputLocation = "C:/ProgramData/TEMP";
-            Path InputPath = Paths.get(InputLocation);
-            Path OutputPath = Paths.get(OutputLocation);
-            
             
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
             //tries to execute the netsh command to add the WLAN profile
             try {
-                Files.copy(InputPath, OutputPath, REPLACE_EXISTING);
-                p = Runtime.getRuntime().exec(WifiSetupClass.CreateWLANCampus_User);
+                System.out.println("StringTempDir = " + WS.StringTempDir);
+                File file = new File(WS.Campus_UserInputPath);
+                FileInputStream fis = null;
+
+                try {
+                    fis = new FileInputStream(file);
+
+                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+
+                    int content;
+                    while ((content = fis.read()) != -1) {
+                        // Copies the stream to a file in the Temp folder
+                        Files.copy(fis, WS.Campus_UserTempDir, REPLACE_EXISTING);;
+                    }
+
+                } 
+                catch (IOException e) {
+                e.printStackTrace();
+                } 
+                finally {
+
+                    try {
+                        if (fis != null)
+                        fis.close();
+                    } 
+                    catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+        
+                String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + WS.Campus_UserTempDir;
+                System.out.println("CreateWLANCampus_User = " + CreateWLANCampus_User);
+                p = Runtime.getRuntime().exec(CreateWLANCampus_User);
+                System.out.println("Process p = " + p.toString());
             } 
             catch (NullPointerException ex) {
-                System.out.println("Error " + ex.getMessage());
+                System.out.println("Error NullPointerException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (IOException ex) {
-                System.out.println("Error " + ex.getMessage());
+                System.out.println("Error IOException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
