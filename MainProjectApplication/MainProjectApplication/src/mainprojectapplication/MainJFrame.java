@@ -652,13 +652,14 @@ if(Desktop.isDesktopSupported())
     }//GEN-LAST:event_jMenuItemVMWareActionPerformed
 
     private void jButton_StaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StaticActionPerformed
+         String userName = System.getProperty("user.name");
         String IP = DNSTextField.getSelectedText();
-        String StaticDNS = "cmd.exe /c start cmd.exe /c start interface ip set dns \"Local Area Connection\" static ";
+        String StaticDNS = "cmd /c start cmd.exe /c runas /profile /user:" + userName + " \"start netsh interface ipv4 add dnsserver name=\"ethernet\" address=8.8.8.8 index=1\" ";
  Process p = null;
         try {
 // Executes All String Commands
 
-            p = Runtime.getRuntime().exec(StaticDNS + IP);
+            p = Runtime.getRuntime().exec(StaticDNS);
          
             
 
@@ -668,19 +669,22 @@ if(Desktop.isDesktopSupported())
             System.out.println("Error " + ex.getMessage());
             Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
+
+
+
+
     }//GEN-LAST:event_jButton_StaticActionPerformed
 
     private void jButton_DHCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DHCPActionPerformed
-        
-        String IPV4DHCP = "c:/elevate cmd.exe /c start netsh interface ipv4 set dnsservers name=\"Wi-Fi\" dhcp";
-        String IPV6DHCP = "c:/elevate cmd.exe /c start netsh interface ipv6 set dnsservers name=\"Wi-Fi\" dhcp";
+        String userName = System.getProperty("user.name");
+        String IPV4DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"Local Connection Networks\" source=dhcp\"";
+        String IPV4EDHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"ethernet\" source=dhcp\"";
  Process p = null;
         try {
 // Executes All String Commands
 
             p = Runtime.getRuntime().exec(IPV4DHCP);
-            p = Runtime.getRuntime().exec(IPV6DHCP);
-            
+            p = Runtime.getRuntime().exec(IPV4EDHCP);
 
             //runs null 
         } catch (IOException ex) {
@@ -688,6 +692,7 @@ if(Desktop.isDesktopSupported())
             System.out.println("Error " + ex.getMessage());
             Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton_DHCPActionPerformed
 
     /**
