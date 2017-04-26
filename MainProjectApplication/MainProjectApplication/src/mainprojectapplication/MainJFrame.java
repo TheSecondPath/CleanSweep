@@ -186,6 +186,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         CheckBox_DiskCheck.setText("Disk Check");
+        CheckBox_DiskCheck.setToolTipText("Verifies the file system integrity of a volume and fixes logical file system errors.");
         CheckBox_DiskCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckBox_DiskCheckActionPerformed(evt);
@@ -205,6 +206,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         CheckBox_FlushDNS.setText("Flush DNS/Renew IP");
+        CheckBox_FlushDNS.setToolTipText("Clears the DNS(Domain Name Server) and fetches it from DHCP");
         CheckBox_FlushDNS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckBox_FlushDNSActionPerformed(evt);
@@ -261,7 +263,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel5.setText("Enter DNS IP Address");
 
         jButton_Static.setText("Enter");
-        jButton_Static.setToolTipText("Sets static DNS Fromabove field.");
+        jButton_Static.setToolTipText("Sets static DNS From the above field.");
         jButton_Static.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_StaticActionPerformed(evt);
@@ -512,9 +514,14 @@ if (CheckBox_FlushDNS.isSelected()){
                 }
         
                 String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + WS.StaffTempDir;
+//                String WLANUsername = "cmd.exe /c netsh wlan ";
                 System.out.println("CreateWLANCampus_User = " + CreateWLANStaff);
                 p = Runtime.getRuntime().exec(CreateWLANStaff);
                 System.out.println("Process p = " + p.toString());
+//                p = Runtime.getRuntime().exec(WLANUsername);
+//                System.out.println("Process p = " + p.toString());
+//                p = Runtime.getRuntime().exec(WLANPassword);
+//                System.out.println("Process p = " + p.toString());
             } 
             catch (NullPointerException ex) {
                 System.out.println("Error NullPointerException " + ex.getMessage());

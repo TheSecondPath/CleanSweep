@@ -341,6 +341,7 @@
         <Component class="javax.swing.JCheckBox" name="CheckBox_DiskCheck">
           <Properties>
             <Property name="text" type="java.lang.String" value="Disk Check"/>
+            <Property name="toolTipText" type="java.lang.String" value="Verifies the file system integrity of a volume and fixes logical file system errors."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckBox_DiskCheckActionPerformed"/>
@@ -368,6 +369,7 @@
         <Component class="javax.swing.JCheckBox" name="CheckBox_FlushDNS">
           <Properties>
             <Property name="text" type="java.lang.String" value="Flush DNS/Renew IP"/>
+            <Property name="toolTipText" type="java.lang.String" value="Clears the DNS(Domain Name Server) and fetches it from DHCP"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckBox_FlushDNSActionPerformed"/>
@@ -394,7 +396,7 @@
     <Component class="javax.swing.JButton" name="jButton_Static">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter"/>
-        <Property name="toolTipText" type="java.lang.String" value="Sets static DNS Fromabove field."/>
+        <Property name="toolTipText" type="java.lang.String" value="Sets static DNS From the above field."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_StaticActionPerformed"/>
