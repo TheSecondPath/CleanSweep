@@ -1,6 +1,6 @@
 <<?xml version="1.0"?>
 <WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
-	<name>Campus_User</name>
+	<name>Staff</name>
 	<SSIDConfig>
 		<SSID>
 			<hex>5374616666</hex>
