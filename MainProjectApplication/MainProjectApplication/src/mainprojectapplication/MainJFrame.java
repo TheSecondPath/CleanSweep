@@ -7,9 +7,12 @@ package mainprojectapplication;
 
 import java.awt.AWTException;
 import java.awt.Desktop;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -427,11 +430,10 @@ if (CheckBox_FlushDNS.isSelected()){
             //tries to execute the netsh command to add the WLAN profile
             try {
                 System.out.println("StringTempDir = " + WS.StringTempDir);
-                File file = new File(WS.StudentInputPath);
-                FileInputStream fis = null;
+                InputStream fis = null;
 
                 try {
-                    fis = new FileInputStream(file);
+                    fis = (getClass().getResourceAsStream(WS.StudentInputPath));
 
                     System.out.println("Total file size to read (in bytes) : " + fis.available());
 
@@ -457,7 +459,7 @@ if (CheckBox_FlushDNS.isSelected()){
                 }
         
                 String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + WS.StudentTempDir;
-                System.out.println("CreateWLANStudent = " + CreateWLANStudent);
+                System.out.println("CreateWLANCampus_User = " + CreateWLANStudent);
                 p = Runtime.getRuntime().exec(CreateWLANStudent);
                 System.out.println("Process p = " + p.toString());
             } 
@@ -481,11 +483,10 @@ if (CheckBox_FlushDNS.isSelected()){
             //tries to execute the netsh command to add the WLAN profile
             try {
                 System.out.println("StringTempDir = " + WS.StringTempDir);
-                File file = new File(WS.StaffInputPath);
-                FileInputStream fis = null;
+                InputStream fis = null;
 
                 try {
-                    fis = new FileInputStream(file);
+                    fis = (getClass().getResourceAsStream(WS.StaffInputPath));
 
                     System.out.println("Total file size to read (in bytes) : " + fis.available());
 
@@ -511,7 +512,7 @@ if (CheckBox_FlushDNS.isSelected()){
                 }
         
                 String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + WS.StaffTempDir;
-                System.out.println("CreateWLANStaff = " + CreateWLANStaff);
+                System.out.println("CreateWLANCampus_User = " + CreateWLANStaff);
                 p = Runtime.getRuntime().exec(CreateWLANStaff);
                 System.out.println("Process p = " + p.toString());
             } 
@@ -523,12 +524,12 @@ if (CheckBox_FlushDNS.isSelected()){
                 System.out.println("Error IOException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
+        
         }
      
         if (jRadioButtonCampus_User.isSelected()){
             
-            //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use - incomplete feature
-            //currently all xml files must be placed in the root of the c: to run correctly
+            //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use
             
             WifiSetupClass WS;
             WS = new WifiSetupClass();
@@ -536,11 +537,10 @@ if (CheckBox_FlushDNS.isSelected()){
             //tries to execute the netsh command to add the WLAN profile
             try {
                 System.out.println("StringTempDir = " + WS.StringTempDir);
-                File file = new File(WS.Campus_UserInputPath);
-                FileInputStream fis = null;
+                InputStream fis = null;
 
                 try {
-                    fis = new FileInputStream(file);
+                    fis = (getClass().getResourceAsStream(WS.Campus_UserInputPath));
 
                     System.out.println("Total file size to read (in bytes) : " + fis.available());
 

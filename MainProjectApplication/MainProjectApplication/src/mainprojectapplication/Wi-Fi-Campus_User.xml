@@ -1,10 +1,10 @@
-<?xml version="1.0"?>
+<<?xml version="1.0"?>
 <WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
 	<name>Campus_User</name>
 	<SSIDConfig>
 		<SSID>
-			<hex>53747564656e74</hex>
-			<name>Student</name>
+			<hex>43616D7075735F55736572</hex>
+			<name>Campus_User</name>
 		</SSID>
 		<nonBroadcast>false</nonBroadcast>
 	</SSIDConfig>
