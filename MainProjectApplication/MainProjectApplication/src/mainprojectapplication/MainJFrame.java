@@ -645,8 +645,9 @@ if(Desktop.isDesktopSupported())
     }//GEN-LAST:event_jMenuItemVMWareActionPerformed
 
     private void jButton_StaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StaticActionPerformed
+         String userName = System.getProperty("user.name");
         String IP = DNSTextField.getSelectedText();
-        String StaticDNS = "cmd /c start cmd.exe /c runas /profile /user:tmcge_000 \"start netsh interface ipv4 add dnsserver name=\"Wi-Fi\" address=8.8.8.8 index=1\" ";
+        String StaticDNS = "cmd /c start cmd.exe /c runas /profile /user:" + userName + " \"start netsh interface ipv4 add dnsserver name=\"ethernet\" address=8.8.8.8 index=1\" ";
  Process p = null;
         try {
 // Executes All String Commands
@@ -669,8 +670,8 @@ if(Desktop.isDesktopSupported())
 
     private void jButton_DHCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DHCPActionPerformed
         String userName = System.getProperty("user.name");
-        String IPV4DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"Wi-Fi\" source=dhcp\"";
-        String IPV6DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv6 set address name=\"Wi-Fi\" source=dhcp\"";
+        String IPV4DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"ethernet\" source=dhcp\"";
+        String IPV6DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv6 set address name=\"ethernet\" source=dhcp\"";
  Process p = null;
         try {
 // Executes All String Commands
