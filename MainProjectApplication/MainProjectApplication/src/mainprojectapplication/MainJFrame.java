@@ -43,15 +43,15 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroupNetworkSelect = new javax.swing.ButtonGroup();
+        RadiobuttonGroupCleanSweep = new javax.swing.ButtonGroup();
         jPanelWifiUtility = new javax.swing.JPanel();
         jButton_Connect = new javax.swing.JButton();
         jCheckBoxStaff = new javax.swing.JCheckBox();
         jCheckBoxCampus_User = new javax.swing.JCheckBox();
         jCheckBoxStudent = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelWifiDesc1 = new javax.swing.JLabel();
+        jLabelWifiDesc2 = new javax.swing.JLabel();
+        jLabelWifiDesc3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -79,7 +79,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanelWifiUtility.setToolTipText("");
 
         jButton_Connect.setText("Connect");
-        jButton_Connect.setToolTipText("Connect to the selected Network and domain.");
+        jButton_Connect.setToolTipText("Connect to the selected Networks.");
         jButton_Connect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ConnectActionPerformed(evt);
@@ -88,6 +88,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jCheckBoxStaff.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jCheckBoxStaff.setText("Staff");
+        jCheckBoxStaff.setToolTipText("Select this to connect to the Staff network.");
         jCheckBoxStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxStaffActionPerformed(evt);
@@ -96,6 +97,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jCheckBoxCampus_User.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jCheckBoxCampus_User.setText("Campus_User");
+        jCheckBoxCampus_User.setToolTipText("Select this to connect to the Campus_User network.");
         jCheckBoxCampus_User.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxCampus_UserActionPerformed(evt);
@@ -104,17 +106,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jCheckBoxStudent.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jCheckBoxStudent.setText("Student");
+        jCheckBoxStudent.setToolTipText("Select this to connect to the Student network.");
         jCheckBoxStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxStudentActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Automatically connect to the Fairmont State Wireless");
+        jLabelWifiDesc1.setText("Automatically connect to the Fairmont State Wireless");
 
-        jLabel2.setText("Network.  Select the networks you would like to");
+        jLabelWifiDesc2.setText("Network.  Select the networks you would like to");
 
-        jLabel3.setText("Configure Below.");
+        jLabelWifiDesc3.setText("Configure Below.");
 
         jLabel4.setText("when logging in, make sure to include the");
 
@@ -134,10 +137,10 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(jCheckBoxStaff, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(jPanelWifiUtilityLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1))
+                        .addComponent(jLabelWifiDesc1))
                     .addGroup(jPanelWifiUtilityLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3))
+                        .addComponent(jLabelWifiDesc3))
                     .addGroup(jPanelWifiUtilityLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(jButton_Connect, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -149,18 +152,18 @@ public class MainJFrame extends javax.swing.JFrame {
                                     .addGap(6, 6, 6)
                                     .addComponent(jLabel5))
                                 .addComponent(jLabel4))
-                            .addComponent(jLabel2))))
+                            .addComponent(jLabelWifiDesc2))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanelWifiUtilityLayout.setVerticalGroup(
             jPanelWifiUtilityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWifiUtilityLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelWifiDesc1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(jLabelWifiDesc2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(jLabelWifiDesc3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jCheckBoxCampus_User)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -190,6 +193,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        RadiobuttonGroupCleanSweep.add(jRadioButtonDefragment);
         jRadioButtonDefragment.setText("Defragment Disk");
         jRadioButtonDefragment.setToolTipText("A tool that reduces the amount of /n fragmentation of the drive by physically reorganizing the data.");
         jRadioButtonDefragment.addActionListener(new java.awt.event.ActionListener() {
@@ -198,15 +202,19 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        RadiobuttonGroupCleanSweep.add(jRadioButtonDiskCleaner);
         jRadioButtonDiskCleaner.setText("Disk Cleaner");
         jRadioButtonDiskCleaner.setToolTipText("Runs a disk cleanup tool to clear cache and other junk files.");
 
+        RadiobuttonGroupCleanSweep.add(jRadioButtonDiskCheck);
         jRadioButtonDiskCheck.setText("Disk Check");
         jRadioButtonDiskCheck.setToolTipText("Checks for file system Problems and fixes file system errors.");
 
+        RadiobuttonGroupCleanSweep.add(jRadioButtonFlushDNS);
         jRadioButtonFlushDNS.setText("Flush DNS/Renew IP");
         jRadioButtonFlushDNS.setToolTipText("Clears the DNS(Domain Name Server) and fetches it from DHCP");
 
+        RadiobuttonGroupCleanSweep.add(jRadioButtonDHCP);
         jRadioButtonDHCP.setText("Enable DHCP for DNS");
         jRadioButtonDHCP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -685,18 +693,18 @@ if(Desktop.isDesktopSupported())
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Execute;
-    private javax.swing.ButtonGroup buttonGroupNetworkSelect;
+    private javax.swing.ButtonGroup RadiobuttonGroupCleanSweep;
     private javax.swing.JButton jButton_Connect;
     private javax.swing.JCheckBox jCheckBoxCampus_User;
     private javax.swing.JCheckBox jCheckBoxStaff;
     private javax.swing.JCheckBox jCheckBoxStudent;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelDescription1;
     private javax.swing.JLabel jLabelDescription2;
+    private javax.swing.JLabel jLabelWifiDesc1;
+    private javax.swing.JLabel jLabelWifiDesc2;
+    private javax.swing.JLabel jLabelWifiDesc3;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuDownloads;
     private javax.swing.JMenu jMenuFile;
