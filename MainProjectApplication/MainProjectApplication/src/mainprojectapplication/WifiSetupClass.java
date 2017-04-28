@@ -17,19 +17,13 @@ import java.util.logging.Logger;
 
 public class WifiSetupClass {
 
-    static String StudentInputPath = ("Wi-Fi-Student.xml");
-    static String StaffInputPath = ("Wi-Fi-Staff.xml");
-    static String Campus_UserInputPath = ("Wi-Fi-Campus_User.xml");
+    static String StudentFileName = ("Wi-Fi-Student");
+    static String StaffFileName = ("Wi-Fi-Staff");
+    static String Campus_UserFileName = ("Wi-Fi-Campus_User");
     String StringTempDir = System.getProperty("java.io.tmpdir");
-    Path StudentTempDir = Paths.get(StringTempDir + StudentInputPath);
-    Path StaffTempDir = Paths.get(StringTempDir + StaffInputPath);
-    Path Campus_UserTempDir = Paths.get(StringTempDir + Campus_UserInputPath);
-//    static final String StudentFilepath = "C:\\Wi-Fi-Student.xml";
-//    static final String StaffFilepath = "C:\\Wi-Fi-Staff.xml";
-//    static final String Campus_UserFilepath = "C:\\Wi-Fi-Campus_User.xml";
-//    static String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + "\\" + Campus_UserInputPath;
-//    static String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + "\\" + StudentInputPath;
-//    static String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + "\\" + StaffInputPath;
+    Path StudentTempDir = Paths.get(StringTempDir + StudentFileName + ".xml");
+    Path StaffTempDir = Paths.get(StringTempDir + StaffFileName + ".xml");
+    Path Campus_UserTempDir = Paths.get(StringTempDir + Campus_UserFileName + ".xml");
 
     
     public WifiSetupClass(){
@@ -46,7 +40,7 @@ public class WifiSetupClass {
 //                InputStream fis = null;
 //
 //                try {
-//                    fis = (getClass().getResourceAsStream(WS.StudentInputPath));
+//                    fis = (getClass().getResourceAsStream(WS.StudentFileName));
 //
 //                    System.out.println("Total file size to read (in bytes) : " + fis.available());
 //
@@ -99,7 +93,7 @@ public class WifiSetupClass {
 //                InputStream fis = null;
 //
 //                try {
-//                    fis = (getClass().getResourceAsStream(WS.StaffInputPath));
+//                    fis = (getClass().getResourceAsStream(WS.StaffFileName));
 //
 //                    System.out.println("Total file size to read (in bytes) : " + fis.available());
 //
@@ -158,7 +152,7 @@ public class WifiSetupClass {
 //                InputStream fis = null;
 //
 //                try {
-//                    fis = (getClass().getResourceAsStream(WS.Campus_UserInputPath));
+//                    fis = (getClass().getResourceAsStream(WS.Campus_UserFileName));
 //
 //                    System.out.println("Total file size to read (in bytes) : " + fis.available());
 //

@@ -224,6 +224,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        RadiobuttonGroupCleanSweep.add(jRadioButtonRecyclingBin);
         jRadioButtonRecyclingBin.setText("Empty Recycling Bin");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -361,9 +362,9 @@ public class MainJFrame extends javax.swing.JFrame {
             try {
                 // Executes All String Commands
 
+                jRadioButtonDHCP.setSelected(false);
                 p = Runtime.getRuntime().exec(IPV4DHCP);
                 p = Runtime.getRuntime().exec(IPV4EDHCP);
-
                 //runs null 
             } catch (IOException ex) {
                 //catches IO Exceptions
@@ -377,8 +378,8 @@ public class MainJFrame extends javax.swing.JFrame {
         if(jRadioButtonDiskCleaner.isSelected()){
             try {
             //runs diskcleanerclass if cleanerbox is selected
+            jRadioButtonDiskCleaner.setSelected(false);
             DiskCleanerClass DC = new DiskCleanerClass();
-            Button_Execute.setEnabled(true);
     
             } catch (AWTException ex) {
                 System.out.println("Error " + ex.getMessage());
@@ -387,17 +388,18 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         if (jRadioButtonDefragment.isSelected()){
             //runs diskdefragclass if defragbox is selected
+            jRadioButtonDefragment.setSelected(false);
             DiskDefragClass DF = new DiskDefragClass();
-
-            Button_Execute.setEnabled(true);
   
         }
         if (jRadioButtonDiskCheck.isSelected()) {
+            //runs diskcheckerclass if checkerbox is selected 
+            jRadioButtonDiskCheck.setSelected(false);
             CheckerClass CC = new CheckerClass();
-                   //runs diskcheckerclass if checkerbox is selected 
         }
         if (jRadioButtonFlushDNS.isSelected()){
             //runs flushDNSclass if flushDNSbox is selected
+            jRadioButtonFlushDNS.setSelected(false);
             FlushDNSClass FDNS = new FlushDNSClass();
             Process p = null;
              String Renew = "cmd.exe /c start cmd.exe /c start ipconfig /renew";
@@ -407,173 +409,189 @@ public class MainJFrame extends javax.swing.JFrame {
                 System.out.println("Error " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Button_Execute.setEnabled(false);
 }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_Button_ExecuteActionPerformed
 
+    @SuppressWarnings("empty-statement")
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
         
         if (jCheckBoxStudent.isSelected()){
         
-            //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
-            //currently all xml files must be placed in the root of the c: to run correctly
+            //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
-            //tries to execute the netsh command to add the WLAN profile
+            //reads the XML resource file Wi-Fi-Student.xml
             try {
                 System.out.println("StringTempDir = " + WS.StringTempDir);
-                InputStream fis = null;
+                InputStream XMLStream = null;
 
                 try {
-                    fis = (getClass().getResourceAsStream(WS.StudentInputPath));
+                    XMLStream = (getClass().getResourceAsStream(WS.StudentFileName + ".xml"));
 
-                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+                    System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
 
                     int content;
-                    while ((content = fis.read()) != -1) {
+                    while ((content = XMLStream.read()) != -1) {
                         // Copies the stream to a file in the Temp folder
-                        Files.copy(fis, WS.StudentTempDir, REPLACE_EXISTING);;
-                    }
-
-                } 
+                        Files.copy(XMLStream, WS.StudentTempDir, REPLACE_EXISTING);;
+                    }//end of while loop
+                    jCheckBoxStudent.setSelected(false);
+                }//end of try to get resource and save it to temp
                 catch (IOException e) {
                 e.printStackTrace();
-                } 
+                }//end of catch IOEception
                 finally {
 
                     try {
-                        if (fis != null)
-                        fis.close();
-                    } 
+                        if (XMLStream != null)
+                        XMLStream.close();
+                    }//end of try to close stream
                     catch (IOException ex) {
                         ex.printStackTrace();
-                    }
+                    }//end of catch IOEception
                 }
-        
+                //tries to execute the netsh command to add the WLAN profile
+                String RemoveWLANStudent = "cmd.exe /c netsh wlan delete profile name=" + WS.StudentFileName;
                 String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + WS.StudentTempDir;
+                p = Runtime.getRuntime().exec(RemoveWLANStudent);
+                System.out.println("Process p = " + p.toString());
                 System.out.println("CreateWLANCampus_User = " + CreateWLANStudent);
                 p = Runtime.getRuntime().exec(CreateWLANStudent);
                 System.out.println("Process p = " + p.toString());
-            } 
+            }//end of try block for reading and saving the XML to the temp folder 
+            
             catch (NullPointerException ex) {
                 System.out.println("Error NullPointerException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }//end of catch NullPointerException
+            
             catch (IOException ex) {
                 System.out.println("Error IOException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            }//end of catch IOException
+        
+        }//end of if statement jCheckBoxStudent.isSelected
     
         if (jCheckBoxStaff.isSelected()){
         
-            //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use - incomplete feature
-            //currently all xml files must be placed in the root of the c: to run correctly
+            //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
-            //tries to execute the netsh command to add the WLAN profile
+            //reads the XML resource file Wi-Fi-Staff.xml
             try {
                 System.out.println("StringTempDir = " + WS.StringTempDir);
-                InputStream fis = null;
+                InputStream XMLStream = null;
 
                 try {
-                    fis = (getClass().getResourceAsStream(WS.StaffInputPath));
+                    XMLStream = (getClass().getResourceAsStream(WS.StaffFileName + ".xml"));
 
-                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+                    System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
 
                     int content;
-                    while ((content = fis.read()) != -1) {
+                    while ((content = XMLStream.read()) != -1) {
                         // Copies the stream to a file in the Temp folder
-                        Files.copy(fis, WS.StaffTempDir, REPLACE_EXISTING);;
-                    }
-
-                } 
+                        Files.copy(XMLStream, WS.StaffTempDir, REPLACE_EXISTING);
+                    }//end of while loop
+                    jCheckBoxStaff.setSelected(false);
+                }//end of try to get resource and save it to temp
                 catch (IOException e) {
                 e.printStackTrace();
-                } 
+                }//end of catch IOEception
                 finally {
 
                     try {
-                        if (fis != null)
-                        fis.close();
-                    } 
+                        if (XMLStream != null)
+                        XMLStream.close();
+                    }//end of try to close stream
                     catch (IOException ex) {
                         ex.printStackTrace();
-                    }
+                    }//end of catch IOEception
                 }
-        
+                //tries to execute the netsh command to add the WLAN profile
+                String RemoveWLANStaff = "cmd.exe /c netsh wlan delete profile name=" + WS.StaffFileName;
                 String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + WS.StaffTempDir;
+                p = Runtime.getRuntime().exec(RemoveWLANStaff);
+                System.out.println("Process p = " + p.toString());
                 System.out.println("CreateWLANCampus_User = " + CreateWLANStaff);
                 p = Runtime.getRuntime().exec(CreateWLANStaff);
                 System.out.println("Process p = " + p.toString());
-            } 
+            }//end of try block for reading and saving the XML to the temp folder
+            
             catch (NullPointerException ex) {
                 System.out.println("Error NullPointerException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }//end of catch NullPointerException
+            
             catch (IOException ex) {
                 System.out.println("Error IOException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }//end of catch IOException
         
-        }
+        }//end of if statement jCheckBoxStaff.isSelected
      
         if (jCheckBoxCampus_User.isSelected()){
             
             //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use
-            
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
-            //tries to execute the netsh command to add the WLAN profile
+            //reads the XML resource file Wi-Fi-Campus_User.xml
             try {
                 System.out.println("StringTempDir = " + WS.StringTempDir);
-                InputStream fis = null;
+                InputStream XMLStream = null;
 
                 try {
-                    fis = (getClass().getResourceAsStream(WS.Campus_UserInputPath));
+                    XMLStream = (getClass().getResourceAsStream(WS.Campus_UserFileName + ".xml"));
 
-                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+                    System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
 
                     int content;
-                    while ((content = fis.read()) != -1) {
+                    while ((content = XMLStream.read()) != -1) {
                         // Copies the stream to a file in the Temp folder
-                        Files.copy(fis, WS.Campus_UserTempDir, REPLACE_EXISTING);;
-                    }
-
-                } 
+                        Files.copy(XMLStream, WS.Campus_UserTempDir, REPLACE_EXISTING);;
+                    }//end of while loop
+                    jCheckBoxCampus_User.setSelected(false);
+                }//end of try to get resource and save it to temp
                 catch (IOException e) {
                 e.printStackTrace();
-                } 
+                }//end of catch IOEception
                 finally {
 
                     try {
-                        if (fis != null)
-                        fis.close();
-                    } 
+                        if (XMLStream != null)
+                        XMLStream.close();
+                    }//end of try to close stream
                     catch (IOException ex) {
                         ex.printStackTrace();
-                    }
+                    }//end of catch IOEception
                 }
-        
+                //tries to execute the netsh command to add the WLAN profile
+                String RemoveWLANCampus_User = "cmd.exe /c netsh wlan delete profile name=" + WS.Campus_UserFileName;
                 String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + WS.Campus_UserTempDir;
+                p = Runtime.getRuntime().exec(RemoveWLANCampus_User);
+                System.out.println("Process p = " + p.toString());
                 System.out.println("CreateWLANCampus_User = " + CreateWLANCampus_User);
                 p = Runtime.getRuntime().exec(CreateWLANCampus_User);
                 System.out.println("Process p = " + p.toString());
-            } 
+            }//end of try block for reading and saving the XML to the temp folder 
+            
             catch (NullPointerException ex) {
                 System.out.println("Error NullPointerException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }//end of catch NullPointerException
+            
             catch (IOException ex) {
                 System.out.println("Error IOException " + ex.getMessage());
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            }//end of catch IOException
+        
+        }//end of if statement jCheckBoxCampus_User.isSelected
+    
+    //end of jButton_ConnectActionPerformed(IDE disallows comments on Auto-generated brackets)
     }//GEN-LAST:event_jButton_ConnectActionPerformed
 
     private void jMenuItemFAQPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFAQPageActionPerformed
