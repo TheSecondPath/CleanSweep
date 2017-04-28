@@ -29,6 +29,11 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemFAQPageActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPlaceTicket">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Place a ticket"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuDownloads">
@@ -102,13 +107,8 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelWifiUtility" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanel2" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel2" max="32767" attributes="0"/>
+          <Component id="jPanelWifiUtility" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -129,14 +129,6 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jCheckBoxCampus_User" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxStaff" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelWifiDesc1" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -145,21 +137,29 @@
                           <Component id="jLabelWifiDesc3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                          <Component id="jButton_Connect" min="-2" pref="160" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelConnectInstruct2" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelConnectInstruct1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabelWifiDesc2" min="-2" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jCheckBoxCampus_User" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxStudent" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxStaff" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                          <Component id="jButton_Connect" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
@@ -175,19 +175,19 @@
                   <Component id="jLabelWifiDesc2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelWifiDesc3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jCheckBoxCampus_User" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jCheckBoxStaff" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jCheckBoxStudent" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jButton_Connect" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabelConnectInstruct1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jLabelConnectInstruct2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -262,12 +262,12 @@
             <Property name="text" type="java.lang.String" value="Configure Below."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="jLabelConnectInstruct1">
           <Properties>
             <Property name="text" type="java.lang.String" value="when logging in, make sure to include the"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="jLabelConnectInstruct2">
           <Properties>
             <Property name="text" type="java.lang.String" value="domain such as Username@Students."/>
           </Properties>
@@ -291,22 +291,23 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelDescription1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelDescription2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabelCleanSweepDesc1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabelCleanSweepDesc2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jRadioButtonDHCP" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonFlushDNS" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonRecyclingBin" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonDiskCleaner" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonDiskCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonDefragment" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonFlushDNS" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           <Component id="Button_Execute" min="-2" pref="123" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -318,33 +319,35 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelDescription1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelCleanSweepDesc1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                  <Component id="jLabelDescription2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jLabelCleanSweepDesc2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jRadioButtonDHCP" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jRadioButtonDefragment" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jRadioButtonDiskCleaner" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonRecyclingBin" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jRadioButtonDiskCheck" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jRadioButtonFlushDNS" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Button_Execute" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabelDescription1">
+        <Component class="javax.swing.JLabel" name="jLabelCleanSweepDesc1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Utilities to Fix problems and clean up junk"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelDescription2">
+        <Component class="javax.swing.JLabel" name="jLabelCleanSweepDesc2">
           <Properties>
             <Property name="text" type="java.lang.String" value="files and cache files"/>
           </Properties>
@@ -407,6 +410,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonDHCPActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonRecyclingBin">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Empty Recycling Bin"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
