@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -44,6 +45,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         RadiobuttonGroupCleanSweep = new javax.swing.ButtonGroup();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanelWifiUtility = new javax.swing.JPanel();
         jButton_Connect = new javax.swing.JButton();
         jCheckBoxStaff = new javax.swing.JCheckBox();
@@ -67,10 +69,13 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuFile = new javax.swing.JMenu();
         jMenuItemFacultyPage = new javax.swing.JMenuItem();
         jMenuItemFAQPage = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuDownloads = new javax.swing.JMenu();
         jMenuVMWare = new javax.swing.JMenuItem();
         jMenuVipreAntivirus = new javax.swing.JMenuItem();
         jMenuMalwareBytes = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fairmont State Wifi Setup Utility");
@@ -288,6 +293,14 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jMenuFile.add(jMenuItemFAQPage);
 
+        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenuFile.add(jMenuItem2);
+
         jMenuBar.add(jMenuFile);
 
         jMenuDownloads.setText("Downloads");
@@ -346,7 +359,12 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_ExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_ExecuteActionPerformed
-if(jRadioButtonDiskCleaner.isSelected()){
+int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to continue?", "Close?",  JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION)
+{
+   
+
+        if(jRadioButtonDiskCleaner.isSelected()){
     try {
        //runs diskcleanerclass if cleanerbox is selected
         DiskCleanerClass DC = new DiskCleanerClass();
@@ -379,14 +397,35 @@ if (jRadioButtonFlushDNS.isSelected()){
         System.out.println("Error " + ex.getMessage());
         Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
     }
-   Button_Execute.setEnabled(false);
-}
+   if(jRadioButtonDHCP.isSelected()){
+       String userName = System.getProperty("user.name");
+        String IPV4DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"Local Connection Networks\" source=dhcp\"";
+        String IPV4EDHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"ethernet\" source=dhcp\"";
+        //wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder () - run as administrator
+        Process pr = null;
+        try {
+// Executes All String Commands
 
+            pr = Runtime.getRuntime().exec(IPV4DHCP);
+            pr = Runtime.getRuntime().exec(IPV4EDHCP);
+
+            //runs null 
+        } catch (IOException ex) {
+            //catches IO Exceptions
+            System.out.println("Error " + ex.getMessage());
+            Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+   }
+}
+}
 // TODO add your handling code here:
     }//GEN-LAST:event_Button_ExecuteActionPerformed
 
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
-        
+      int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to connect?", "Close?",  JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION)
+{
+   
         if (jCheckBoxStudent.isSelected()){
         
             //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
@@ -551,6 +590,7 @@ if (jRadioButtonFlushDNS.isSelected()){
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+}
     }//GEN-LAST:event_jButton_ConnectActionPerformed
 
     private void jMenuItemFAQPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFAQPageActionPerformed
@@ -638,23 +678,16 @@ if(Desktop.isDesktopSupported())
     }//GEN-LAST:event_jRadioButtonDefragmentActionPerformed
 
     private void jRadioButtonDHCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDHCPActionPerformed
-                String userName = System.getProperty("user.name");
-        String IPV4DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"Local Connection Networks\" source=dhcp\"";
-        String IPV4EDHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"ethernet\" source=dhcp\"";
- Process p = null;
-        try {
-// Executes All String Commands
-
-            p = Runtime.getRuntime().exec(IPV4DHCP);
-            p = Runtime.getRuntime().exec(IPV4EDHCP);
-
-            //runs null 
-        } catch (IOException ex) {
-            //catches IO Exceptions
-            System.out.println("Error " + ex.getMessage());
-            Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
+                
     }//GEN-LAST:event_jRadioButtonDHCPActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Close?",  JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION)
+{
+   System.exit(0);
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -708,6 +741,8 @@ if(Desktop.isDesktopSupported())
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuDownloads;
     private javax.swing.JMenu jMenuFile;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemFAQPage;
     private javax.swing.JMenuItem jMenuItemFacultyPage;
     private javax.swing.JMenuItem jMenuMalwareBytes;
