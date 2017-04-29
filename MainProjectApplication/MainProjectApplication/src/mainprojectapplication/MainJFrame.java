@@ -20,6 +20,8 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -33,6 +35,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -70,6 +73,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuItemFacultyPage = new javax.swing.JMenuItem();
         jMenuItemFAQPage = new javax.swing.JMenuItem();
         jMenuItemPlaceTicket = new javax.swing.JMenuItem();
+        Menu_Exit = new javax.swing.JMenuItem();
         jMenuDownloads = new javax.swing.JMenu();
         jMenuVMWare = new javax.swing.JMenuItem();
         jMenuVipreAntivirus = new javax.swing.JMenuItem();
@@ -300,6 +304,14 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuItemPlaceTicket.setText("Place a ticket");
         jMenuFile.add(jMenuItemPlaceTicket);
 
+        Menu_Exit.setText("Exit");
+        Menu_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_ExitActionPerformed(evt);
+            }
+        });
+        jMenuFile.add(Menu_Exit);
+
         jMenuBar.add(jMenuFile);
 
         jMenuDownloads.setText("Downloads");
@@ -355,61 +367,64 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_ExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_ExecuteActionPerformed
-        if (jRadioButtonDHCP.isSelected()){
-        String userName = System.getProperty("user.name");
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to execute?", "Close?",  JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION)
+{
+   
+
+        if(jRadioButtonDiskCleaner.isSelected()){
+    try {
+       //runs diskcleanerclass if cleanerbox is selected
+        DiskCleanerClass DC = new DiskCleanerClass();
+        Button_Execute.setEnabled(true);
+    
+    } catch (AWTException ex) {
+        System.out.println("Error " + ex.getMessage());
+        Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+if (jRadioButtonDefragment.isSelected()){
+    //runs diskdefragclass if defragbox is selected
+    DiskDefragClass DF = new DiskDefragClass();
+    
+  Button_Execute.setEnabled(true);
+  
+}
+if (jRadioButtonDiskCheck.isSelected()) {
+    CheckerClass CC = new CheckerClass();
+           //runs diskcheckerclass if checkerbox is selected 
+}
+if (jRadioButtonFlushDNS.isSelected()){
+    //runs flushDNSclass if flushDNSbox is selected
+    FlushDNSClass FDNS = new FlushDNSClass();
+    Process p = null;
+     String Renew = "cmd.exe /c start cmd.exe /c start ipconfig /renew";
+    try {
+        p = Runtime.getRuntime().exec(Renew);
+    } catch (IOException ex) {
+        System.out.println("Error " + ex.getMessage());
+        Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+    }
+   if(jRadioButtonDHCP.isSelected()){
+       String userName = System.getProperty("user.name");
         String IPV4DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"Local Connection Networks\" source=dhcp\"";
         String IPV4EDHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"ethernet\" source=dhcp\"";
-        Process p = null;
-            try {
-                // Executes All String Commands
+        //wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder () - run as administrator
+        Process pr = null;
+        try {
+// Executes All String Commands
 
-                jRadioButtonDHCP.setSelected(false);
-                p = Runtime.getRuntime().exec(IPV4DHCP);
-                p = Runtime.getRuntime().exec(IPV4EDHCP);
-                //runs null 
-            } catch (IOException ex) {
-                //catches IO Exceptions
-                System.out.println("Error " + ex.getMessage());
-                Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
-            }        // TODO add your handling code here:
-        
-        
-        }
-        
-        if(jRadioButtonDiskCleaner.isSelected()){
-            try {
-            //runs diskcleanerclass if cleanerbox is selected
-            jRadioButtonDiskCleaner.setSelected(false);
-            DiskCleanerClass DC = new DiskCleanerClass();
-    
-            } catch (AWTException ex) {
-                System.out.println("Error " + ex.getMessage());
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        if (jRadioButtonDefragment.isSelected()){
-            //runs diskdefragclass if defragbox is selected
-            jRadioButtonDefragment.setSelected(false);
-            DiskDefragClass DF = new DiskDefragClass();
-  
-        }
-        if (jRadioButtonDiskCheck.isSelected()) {
-            //runs diskcheckerclass if checkerbox is selected 
-            jRadioButtonDiskCheck.setSelected(false);
-            CheckerClass CC = new CheckerClass();
-        }
-        if (jRadioButtonFlushDNS.isSelected()){
-            //runs flushDNSclass if flushDNSbox is selected
-            jRadioButtonFlushDNS.setSelected(false);
-            FlushDNSClass FDNS = new FlushDNSClass();
-            Process p = null;
-             String Renew = "cmd.exe /c start cmd.exe /c start ipconfig /renew";
-            try {
-                p = Runtime.getRuntime().exec(Renew);
-            } catch (IOException ex) {
-                System.out.println("Error " + ex.getMessage());
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            pr = Runtime.getRuntime().exec(IPV4DHCP);
+            pr = Runtime.getRuntime().exec(IPV4EDHCP);
+
+            //runs null 
+        } catch (IOException ex) {
+            //catches IO Exceptions
+            System.out.println("Error " + ex.getMessage());
+            Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+   }
+}
 }
 
 // TODO add your handling code here:
@@ -417,7 +432,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     @SuppressWarnings("empty-statement")
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
-        
+          int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to connect?", "Close?",  JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION)
+{
+   
         if (jCheckBoxStudent.isSelected()){
         
             WifiSetupClass WS;
@@ -589,7 +607,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }//end of catch IOException
         
         }//end of if statement jCheckBoxCampus_User.isSelected
-    
+}
     //end of jButton_ConnectActionPerformed(IDE disallows comments on Auto-generated brackets)
     }//GEN-LAST:event_jButton_ConnectActionPerformed
 
@@ -680,6 +698,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jRadioButtonDHCPActionPerformed
 
+    private void Menu_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_ExitActionPerformed
+int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Close?",  JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION)
+{
+   System.exit(0);
+}          // TODO add your handling code here:
+    }//GEN-LAST:event_Menu_ExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -720,6 +746,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Execute;
+    private javax.swing.JMenuItem Menu_Exit;
     private javax.swing.ButtonGroup RadiobuttonGroupCleanSweep;
     private javax.swing.JButton jButton_Connect;
     private javax.swing.JCheckBox jCheckBoxCampus_User;
