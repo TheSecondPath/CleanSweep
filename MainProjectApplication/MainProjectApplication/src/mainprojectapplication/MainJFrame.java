@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 
 /**
@@ -419,7 +420,6 @@ public class MainJFrame extends javax.swing.JFrame {
         
         if (jCheckBoxStudent.isSelected()){
         
-            //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -453,12 +453,12 @@ public class MainJFrame extends javax.swing.JFrame {
                         ex.printStackTrace();
                     }//end of catch IOEception
                 }
-                //tries to execute the netsh command to add the WLAN profile
+                //Removes any existing WLAN profile with the same name as the new Profile
                 String RemoveWLANStudent = "cmd.exe /c netsh wlan delete profile name=" + WS.StudentFileName;
                 String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + WS.StudentTempDir;
                 p = Runtime.getRuntime().exec(RemoveWLANStudent);
                 System.out.println("Process p = " + p.toString());
-                System.out.println("CreateWLANCampus_User = " + CreateWLANStudent);
+                System.out.println("CreateWLANStudent = " + CreateWLANStudent);
                 p = Runtime.getRuntime().exec(CreateWLANStudent);
                 System.out.println("Process p = " + p.toString());
             }//end of try block for reading and saving the XML to the temp folder 
@@ -477,7 +477,6 @@ public class MainJFrame extends javax.swing.JFrame {
     
         if (jCheckBoxStaff.isSelected()){
         
-            //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -510,13 +509,14 @@ public class MainJFrame extends javax.swing.JFrame {
                     catch (IOException ex) {
                         ex.printStackTrace();
                     }//end of catch IOEception
-                }
-                //tries to execute the netsh command to add the WLAN profile
+                }//end of finally block
+                
+                //Removes any existing WLAN profile with the same name as the new Profile
                 String RemoveWLANStaff = "cmd.exe /c netsh wlan delete profile name=" + WS.StaffFileName;
                 String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + WS.StaffTempDir;
                 p = Runtime.getRuntime().exec(RemoveWLANStaff);
                 System.out.println("Process p = " + p.toString());
-                System.out.println("CreateWLANCampus_User = " + CreateWLANStaff);
+                System.out.println("CreateWLANStaff = " + CreateWLANStaff);
                 p = Runtime.getRuntime().exec(CreateWLANStaff);
                 System.out.println("Process p = " + p.toString());
             }//end of try block for reading and saving the XML to the temp folder
@@ -535,7 +535,6 @@ public class MainJFrame extends javax.swing.JFrame {
      
         if (jCheckBoxCampus_User.isSelected()){
             
-            //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use
             WifiSetupClass WS;
             WS = new WifiSetupClass();
             Process p = null;
@@ -569,7 +568,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         ex.printStackTrace();
                     }//end of catch IOEception
                 }
-                //tries to execute the netsh command to add the WLAN profile
+                ////Removes any existing WLAN profile with the same name as the new Profile
                 String RemoveWLANCampus_User = "cmd.exe /c netsh wlan delete profile name=" + WS.Campus_UserFileName;
                 String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + WS.Campus_UserTempDir;
                 p = Runtime.getRuntime().exec(RemoveWLANCampus_User);
@@ -711,7 +710,10 @@ public class MainJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                JFrame frame = new MainJFrame();
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
             }
         });
     }
