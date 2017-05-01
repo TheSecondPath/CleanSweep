@@ -25,170 +25,180 @@ public class WifiSetupClass {
     Path StaffTempDir = Paths.get(StringTempDir + StaffFileName + ".xml");
     Path Campus_UserTempDir = Paths.get(StringTempDir + Campus_UserFileName + ".xml");
 
-    
-    public WifiSetupClass(){
-//        if (jRadioButtonStudent.isSelected()){
+
+//if (jCheckBoxStudent.isSelected()){
 //        
-//            //takes the Wi-Fi-Student.xml file within the jar and extracts it to a temporary location for use - incomplete feature
-//            //currently all xml files must be placed in the root of the c: to run correctly
 //            WifiSetupClass WS;
 //            WS = new WifiSetupClass();
 //            Process p = null;
-//            //tries to execute the netsh command to add the WLAN profile
+//            //reads the XML resource file Wi-Fi-Student.xml
 //            try {
 //                System.out.println("StringTempDir = " + WS.StringTempDir);
-//                InputStream fis = null;
+//                InputStream XMLStream = null;
 //
 //                try {
-//                    fis = (getClass().getResourceAsStream(WS.StudentFileName));
+//                    XMLStream = (getClass().getResourceAsStream(WS.StudentFileName + ".xml"));
 //
-//                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+//                    System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
 //
 //                    int content;
-//                    while ((content = fis.read()) != -1) {
+//                    while ((content = XMLStream.read()) != -1) {
 //                        // Copies the stream to a file in the Temp folder
-//                        Files.copy(fis, WS.StudentTempDir, REPLACE_EXISTING);;
-//                    }
-//
-//                } 
+//                        Files.copy(XMLStream, WS.StudentTempDir, REPLACE_EXISTING);;
+//                    }//end of while loop
+//                    
+//                }//end of try to get resource and save it to temp
 //                catch (IOException e) {
 //                e.printStackTrace();
-//                } 
+//                }//end of catch IOEception
 //                finally {
 //
 //                    try {
-//                        if (fis != null)
-//                        fis.close();
-//                    } 
+//                        if (XMLStream != null)
+//                        XMLStream.close();
+//                    }//end of try to close stream
 //                    catch (IOException ex) {
 //                        ex.printStackTrace();
-//                    }
+//                    }//end of catch IOEception
 //                }
-//        
+//                //Removes any existing WLAN profile with the same name as the new Profile
+//                String RemoveWLANStudent = "cmd.exe /c netsh wlan delete profile name=" + WS.StudentFileName;
 //                String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + WS.StudentTempDir;
-//                System.out.println("CreateWLANCampus_User = " + CreateWLANStudent);
+//                p = Runtime.getRuntime().exec(RemoveWLANStudent);
+//                System.out.println("Process p = " + p.toString());
+//                System.out.println("CreateWLANStudent = " + CreateWLANStudent);
 //                p = Runtime.getRuntime().exec(CreateWLANStudent);
 //                System.out.println("Process p = " + p.toString());
-//            } 
+//            }//end of try block for reading and saving the XML to the temp folder 
+//            
 //            catch (NullPointerException ex) {
 //                System.out.println("Error NullPointerException " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+//            }//end of catch NullPointerException
+//            
 //            catch (IOException ex) {
 //                System.out.println("Error IOException " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    
-//        if (jRadioButtonStaff.isSelected()){
+//            }//end of catch IOException
+//        return null;
 //        
-//            //takes the Wi-Fi-Staff.xml file within the jar and extracts it to a temporary location for use - incomplete feature
-//            //currently all xml files must be placed in the root of the c: to run correctly
+//        }//end of if statement jCheckBoxStudent.isSelected
+//    
+//        if (jCheckBoxStaff.isSelected()){
+//  
+//        
 //            WifiSetupClass WS;
 //            WS = new WifiSetupClass();
 //            Process p = null;
-//            //tries to execute the netsh command to add the WLAN profile
+//            //reads the XML resource file Wi-Fi-Staff.xml
 //            try {
 //                System.out.println("StringTempDir = " + WS.StringTempDir);
-//                InputStream fis = null;
+//                InputStream XMLStream = null;
 //
 //                try {
-//                    fis = (getClass().getResourceAsStream(WS.StaffFileName));
+//                    XMLStream = (getClass().getResourceAsStream(WS.StaffFileName + ".xml"));
 //
-//                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+//                    System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
 //
 //                    int content;
-//                    while ((content = fis.read()) != -1) {
+//                    while ((content = XMLStream.read()) != -1) {
 //                        // Copies the stream to a file in the Temp folder
-//                        Files.copy(fis, WS.StaffTempDir, REPLACE_EXISTING);;
-//                    }
-//
-//                } 
+//                        Files.copy(XMLStream, WS.StaffTempDir, REPLACE_EXISTING);
+//                    }//end of while loop
+//                    
+//                }//end of try to get resource and save it to temp
 //                catch (IOException e) {
 //                e.printStackTrace();
-//                } 
+//                }//end of catch IOEception
 //                finally {
 //
 //                    try {
-//                        if (fis != null)
-//                        fis.close();
-//                    } 
+//                        if (XMLStream != null)
+//                        XMLStream.close();
+//                    }//end of try to close stream
 //                    catch (IOException ex) {
 //                        ex.printStackTrace();
-//                    }
-//                }
-//        
+//                    }//end of catch IOEception
+//                }//end of finally block
+//                
+//                //Removes any existing WLAN profile with the same name as the new Profile
+//                String RemoveWLANStaff = "cmd.exe /c netsh wlan delete profile name=" + WS.StaffFileName;
 //                String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + WS.StaffTempDir;
-////                String WLANUsername = "cmd.exe /c netsh wlan ";
-//                System.out.println("CreateWLANCampus_User = " + CreateWLANStaff);
+//                p = Runtime.getRuntime().exec(RemoveWLANStaff);
+//                System.out.println("Process p = " + p.toString());
+//                System.out.println("CreateWLANStaff = " + CreateWLANStaff);
 //                p = Runtime.getRuntime().exec(CreateWLANStaff);
 //                System.out.println("Process p = " + p.toString());
-////                p = Runtime.getRuntime().exec(WLANUsername);
-////                System.out.println("Process p = " + p.toString());
-////                p = Runtime.getRuntime().exec(WLANPassword);
-////                System.out.println("Process p = " + p.toString());
-//            } 
+//            }//end of try block for reading and saving the XML to the temp folder
+//            
 //            catch (NullPointerException ex) {
 //                System.out.println("Error NullPointerException " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+//            }//end of catch NullPointerException
+//            
 //            catch (IOException ex) {
 //                System.out.println("Error IOException " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+//            }//end of catch IOException
+//        return null;
 //        
-//        }
+//        }//end of if statement jCheckBoxStaff.isSelected
 //     
-//        if (jRadioButtonCampus_User.isSelected()){
-//            
-//            //takes the Wi-Fi-Campus_User.xml file within the jar and extracts it to a temporary location for use
+//        if (jCheckBoxCampus_User.isSelected()){
 //            
 //            WifiSetupClass WS;
 //            WS = new WifiSetupClass();
 //            Process p = null;
-//            //tries to execute the netsh command to add the WLAN profile
+//            //reads the XML resource file Wi-Fi-Campus_User.xml
 //            try {
 //                System.out.println("StringTempDir = " + WS.StringTempDir);
-//                InputStream fis = null;
+//                InputStream XMLStream = null;
 //
 //                try {
-//                    fis = (getClass().getResourceAsStream(WS.Campus_UserFileName));
+//                    XMLStream = (getClass().getResourceAsStream(WS.Campus_UserFileName + ".xml"));
 //
-//                    System.out.println("Total file size to read (in bytes) : " + fis.available());
+//                    System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
 //
 //                    int content;
-//                    while ((content = fis.read()) != -1) {
+//                    while ((content = XMLStream.read()) != -1) {
 //                        // Copies the stream to a file in the Temp folder
-//                        Files.copy(fis, WS.Campus_UserTempDir, REPLACE_EXISTING);;
-//                    }
-//
-//                } 
+//                        Files.copy(XMLStream, WS.Campus_UserTempDir, REPLACE_EXISTING);;
+//                    }//end of while loop
+//                    
+//                }//end of try to get resource and save it to temp
 //                catch (IOException e) {
 //                e.printStackTrace();
-//                } 
+//                }//end of catch IOEception
 //                finally {
 //
 //                    try {
-//                        if (fis != null)
-//                        fis.close();
-//                    } 
+//                        if (XMLStream != null)
+//                        XMLStream.close();
+//                    }//end of try to close stream
 //                    catch (IOException ex) {
 //                        ex.printStackTrace();
-//                    }
+//                    }//end of catch IOEception
 //                }
-//        
+//                ////Removes any existing WLAN profile with the same name as the new Profile
+//                String RemoveWLANCampus_User = "cmd.exe /c netsh wlan delete profile name=" + WS.Campus_UserFileName;
 //                String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + WS.Campus_UserTempDir;
+//                p = Runtime.getRuntime().exec(RemoveWLANCampus_User);
+//                System.out.println("Process p = " + p.toString());
 //                System.out.println("CreateWLANCampus_User = " + CreateWLANCampus_User);
 //                p = Runtime.getRuntime().exec(CreateWLANCampus_User);
 //                System.out.println("Process p = " + p.toString());
-//            } 
+//            }//end of try block for reading and saving the XML to the temp folder 
+//            
 //            catch (NullPointerException ex) {
 //                System.out.println("Error NullPointerException " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+//            }//end of catch NullPointerException
+//            
 //            catch (IOException ex) {
 //                System.out.println("Error IOException " + ex.getMessage());
 //                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-        }
+//            }//end of catch IOException
+//        return null;
+//        }//end of if statement jCheckBoxCampus_User.isSelected
+        
     }
