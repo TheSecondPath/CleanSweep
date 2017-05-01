@@ -448,14 +448,8 @@ if (jRadioButtonFlushDNS.isSelected()){
 
                     try {
                         XMLStream = (getClass().getResourceAsStream(WS.StudentFileName + ".xml"));
-
                         System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
-
-                        int content;
-                        while ((content = XMLStream.read()) != -1) {
-                            // Copies the stream to a file in the Temp folder
-                            Files.copy(XMLStream, WS.StudentTempDir, REPLACE_EXISTING);;
-                        }//end of while loop
+                        Files.copy(XMLStream, WS.StudentTempDir, REPLACE_EXISTING);;
                         jCheckBoxStudent.setSelected(false);
                     }//end of try to get resource and save it to temp
                     catch (IOException e) {
@@ -505,14 +499,8 @@ if (jRadioButtonFlushDNS.isSelected()){
 
                     try {
                         XMLStream = (getClass().getResourceAsStream(WS.StaffFileName + ".xml"));
-
                         System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
-
-                        int content;
-                        while ((content = XMLStream.read()) != -1) {
-                            // Copies the stream to a file in the Temp folder
-                            Files.copy(XMLStream, WS.StaffTempDir, REPLACE_EXISTING);
-                        }//end of while loop
+                        Files.copy(XMLStream, WS.StaffTempDir, REPLACE_EXISTING);
                         jCheckBoxStaff.setSelected(false);
                     }//end of try to get resource and save it to temp
                     catch (IOException e) {
@@ -563,14 +551,8 @@ if (jRadioButtonFlushDNS.isSelected()){
 
                     try {
                         XMLStream = (getClass().getResourceAsStream(WS.Campus_UserFileName + ".xml"));
-
                         System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
-
-                        int content;
-                        while ((content = XMLStream.read()) != -1) {
-                            // Copies the stream to a file in the Temp folder
-                            Files.copy(XMLStream, WS.Campus_UserTempDir, REPLACE_EXISTING);;
-                        }//end of while loop
+                        Files.copy(XMLStream, WS.Campus_UserTempDir, REPLACE_EXISTING);;
                         jCheckBoxCampus_User.setSelected(false);
                     }//end of try to get resource and save it to temp
                     catch (IOException e) {
@@ -586,7 +568,7 @@ if (jRadioButtonFlushDNS.isSelected()){
                             ex.printStackTrace();
                         }//end of catch IOEception
                     }
-                    ////Removes any existing WLAN profile with the same name as the new Profile
+                    //Removes any existing WLAN profile with the same name as the new Profile
                     String RemoveWLANCampus_User = "cmd.exe /c netsh wlan delete profile name=" + WS.Campus_UserFileName;
                     String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + WS.Campus_UserTempDir;
                     p = Runtime.getRuntime().exec(RemoveWLANCampus_User);
