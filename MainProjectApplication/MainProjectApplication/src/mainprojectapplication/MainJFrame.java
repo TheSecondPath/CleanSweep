@@ -302,6 +302,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuFile.add(jMenuItemFAQPage);
 
         jMenuItemPlaceTicket.setText("Place a ticket");
+        jMenuItemPlaceTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPlaceTicketActionPerformed(evt);
+            }
+        });
         jMenuFile.add(jMenuItemPlaceTicket);
 
         Menu_Exit.setText("Exit");
@@ -367,7 +372,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_ExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_ExecuteActionPerformed
-    int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to execute?", "Close?",  JOptionPane.YES_NO_OPTION);
+    int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to execute?", "Execute",  JOptionPane.YES_NO_OPTION);
     if (reply == JOptionPane.YES_OPTION)
     {
 
@@ -432,7 +437,7 @@ if (jRadioButtonFlushDNS.isSelected()){
 
     @SuppressWarnings("empty-statement")
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
-        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to connect?", "Close?",  JOptionPane.YES_NO_OPTION);
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to connect?", "Wi-Fi Connect",  JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION)
         {
    
@@ -688,6 +693,21 @@ if (reply == JOptionPane.YES_OPTION)
    System.exit(0);
 }          // TODO add your handling code here:
     }//GEN-LAST:event_Menu_ExitActionPerformed
+
+    private void jMenuItemPlaceTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPlaceTicketActionPerformed
+     int reply = JOptionPane.showConfirmDialog(null, "Did you want to send a support email to: webmaster@fairmontstate.edu?", "Email",  JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION)
+{
+             // TODO add your handling cod
+        try {
+            SupportTicketClass STC = new SupportTicketClass();        // TODO add your handling code here:
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+    }//GEN-LAST:event_jMenuItemPlaceTicketActionPerformed
 
     /**
      * @param args the command line arguments
