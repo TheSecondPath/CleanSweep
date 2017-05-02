@@ -7,12 +7,8 @@ package mainprojectapplication;
 
 import java.awt.AWTException;
 import java.awt.Desktop;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -66,7 +62,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jRadioButtonDiskCleaner = new javax.swing.JRadioButton();
         jRadioButtonDiskCheck = new javax.swing.JRadioButton();
         jRadioButtonFlushDNS = new javax.swing.JRadioButton();
-        jRadioButtonDHCP = new javax.swing.JRadioButton();
         jRadioButtonRecyclingBin = new javax.swing.JRadioButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
@@ -173,11 +168,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabelWifiDesc3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jCheckBoxCampus_User)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBoxStaff)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jCheckBoxStudent)
-                .addGap(49, 49, 49)
+                .addGap(43, 43, 43)
                 .addComponent(jButton_Connect)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelConnectInstruct1)
@@ -221,14 +216,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jRadioButtonFlushDNS.setText("Flush DNS/Renew IP");
         jRadioButtonFlushDNS.setToolTipText("Clears the DNS(Domain Name Server) and fetches it from DHCP");
 
-        RadiobuttonGroupCleanSweep.add(jRadioButtonDHCP);
-        jRadioButtonDHCP.setText("Enable DHCP for DNS");
-        jRadioButtonDHCP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonDHCPActionPerformed(evt);
-            }
-        });
-
         RadiobuttonGroupCleanSweep.add(jRadioButtonRecyclingBin);
         jRadioButtonRecyclingBin.setText("Empty Recycling Bin");
 
@@ -246,14 +233,13 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonDHCP)
                             .addComponent(jRadioButtonRecyclingBin)
                             .addComponent(jRadioButtonDiskCleaner)
                             .addComponent(jRadioButtonDiskCheck)
                             .addComponent(jRadioButtonDefragment)
                             .addComponent(jRadioButtonFlushDNS)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
+                        .addGap(58, 58, 58)
                         .addComponent(Button_Execute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -264,9 +250,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabelCleanSweepDesc1)
                 .addGap(5, 5, 5)
                 .addComponent(jLabelCleanSweepDesc2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButtonDHCP)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addComponent(jRadioButtonDefragment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButtonDiskCleaner)
@@ -276,10 +260,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jRadioButtonDiskCheck)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButtonFlushDNS)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addComponent(Button_Execute)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
+
+        jMenuBar.setToolTipText("");
 
         jMenuFile.setText("File");
         jMenuFile.setToolTipText("Opens a browser to the faculty directory.");
@@ -410,25 +396,6 @@ if (jRadioButtonFlushDNS.isSelected()){
         System.out.println("Error " + ex.getMessage());
         Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
     }
-   if(jRadioButtonDHCP.isSelected()){
-       String userName = System.getProperty("user.name");
-        String IPV4DHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"Local Connection Networks\" source=dhcp\"";
-        String IPV4EDHCP = "cmd /c start cmd.exe /c runas /user:" + userName + " \"netsh interface ipv4 set address name=\"ethernet\" source=dhcp\"";
-        //wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder () - run as administrator
-        Process pr = null;
-        try {
-// Executes All String Commands
-
-            pr = Runtime.getRuntime().exec(IPV4DHCP);
-            pr = Runtime.getRuntime().exec(IPV4EDHCP);
-
-            //runs null 
-        } catch (IOException ex) {
-            //catches IO Exceptions
-            System.out.println("Error " + ex.getMessage());
-            Logger.getLogger(FlushDNSClass.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
-   }
 }
 }
 
@@ -682,10 +649,6 @@ if (jRadioButtonFlushDNS.isSelected()){
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonDefragmentActionPerformed
 
-    private void jRadioButtonDHCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDHCPActionPerformed
-
-    }//GEN-LAST:event_jRadioButtonDHCPActionPerformed
-
     private void Menu_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_ExitActionPerformed
 int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Close?",  JOptionPane.YES_NO_OPTION);
 if (reply == JOptionPane.YES_OPTION)
@@ -773,7 +736,6 @@ if (reply == JOptionPane.YES_OPTION)
     private javax.swing.JMenuItem jMenuVipreAntivirus;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelWifiUtility;
-    private javax.swing.JRadioButton jRadioButtonDHCP;
     private javax.swing.JRadioButton jRadioButtonDefragment;
     private javax.swing.JRadioButton jRadioButtonDiskCheck;
     private javax.swing.JRadioButton jRadioButtonDiskCleaner;

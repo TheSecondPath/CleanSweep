@@ -5,6 +5,9 @@
     <Component class="javax.swing.ButtonGroup" name="RadiobuttonGroupCleanSweep">
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenuFile">
           <Properties>
@@ -188,11 +191,11 @@
                   <Component id="jLabelWifiDesc3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jCheckBoxCampus_User" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jCheckBoxStaff" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jCheckBoxStudent" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="jButton_Connect" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabelConnectInstruct1" min="-2" max="-2" attributes="0"/>
@@ -300,7 +303,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioButtonDHCP" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonRecyclingBin" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonDiskCleaner" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonDiskCheck" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -309,7 +311,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           <Component id="Button_Execute" min="-2" pref="123" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -324,9 +326,7 @@
                   <Component id="jLabelCleanSweepDesc1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="jLabelCleanSweepDesc2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jRadioButtonDHCP" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jRadioButtonDefragment" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jRadioButtonDiskCleaner" min="-2" max="-2" attributes="0"/>
@@ -336,9 +336,9 @@
                   <Component id="jRadioButtonDiskCheck" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jRadioButtonFlushDNS" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="Button_Execute" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace pref="58" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -401,17 +401,6 @@
             <Property name="text" type="java.lang.String" value="Flush DNS/Renew IP"/>
             <Property name="toolTipText" type="java.lang.String" value="Clears the DNS(Domain Name Server) and fetches it from DHCP"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonDHCP">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="RadiobuttonGroupCleanSweep"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Enable DHCP for DNS"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonDHCPActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButtonRecyclingBin">
           <Properties>
