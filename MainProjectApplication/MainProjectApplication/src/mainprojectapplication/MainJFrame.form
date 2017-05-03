@@ -12,15 +12,16 @@
         <Menu class="javax.swing.JMenu" name="jMenuFile">
           <Properties>
             <Property name="text" type="java.lang.String" value="File"/>
-            <Property name="toolTipText" type="java.lang.String" value="Opens a browser to the faculty directory."/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemFacultyPage">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCampusDirectoryPage">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Faculty page"/>
+                <Property name="text" type="java.lang.String" value="Campus Directory Search Tool"/>
+                <Property name="toolTipText" type="java.lang.String" value="Opens a browser to the Campus Directory Search Tool."/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemFacultyPageActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCampusDirectoryPageActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemFAQPage">
@@ -34,7 +35,8 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPlaceTicket">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Place a ticket"/>
+                <Property name="text" type="java.lang.String" value="Place an IT support ticket"/>
+                <Property name="toolTipText" type="java.lang.String" value="Opens the default Email client to send an email to help@fairmontstate.edu"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPlaceTicketActionPerformed"/>
@@ -53,7 +55,6 @@
         <Menu class="javax.swing.JMenu" name="jMenuDownloads">
           <Properties>
             <Property name="text" type="java.lang.String" value="Downloads"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuVMWare">
@@ -68,6 +69,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuVipreAntivirus">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vipre Antivirus"/>
+                <Property name="toolTipText" type="java.lang.String" value="Opens a browser to the Fairmont State Vipre download page."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuVipreAntivirusActionPerformed"/>
@@ -76,6 +78,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuMalwareBytes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MalwareBytes"/>
+                <Property name="toolTipText" type="java.lang.String" value="Opens a browser to the MalwareBytes download page."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuMalwareBytesActionPerformed"/>
@@ -134,7 +137,6 @@
             <TitledBorder title="Wifi Utility"/>
           </Border>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
 
       <Layout>
@@ -408,6 +410,7 @@
               <ComponentRef name="RadiobuttonGroupCleanSweep"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Empty Recycling Bin"/>
+            <Property name="toolTipText" type="java.lang.String" value="Empties the Recycling Bin of all deleted files."/>
           </Properties>
         </Component>
       </SubComponents>
