@@ -422,13 +422,14 @@ if (jRadioButtonFlushDNS.isSelected()){
                     InputStream XMLStream = null;
 
                     try {
-                        XMLStream = (getClass().getResourceAsStream(WS.StudentFileName + ".xml"));
+                        XMLStream = (getClass().getResourceAsStream(WifiSetupClass.StudentFileName + ".xml"));
                         System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
                         Files.copy(XMLStream, WS.StudentTempDir, REPLACE_EXISTING);;
                         jCheckBoxStudent.setSelected(false);
                     }//end of try to get resource and save it to temp
-                    catch (IOException e) {
-                    e.printStackTrace();
+                    catch (IOException ex) {
+                        System.out.println("Error IOException " + ex.getMessage());
+                        Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }//end of catch IOEception
                     finally {
 
@@ -437,11 +438,12 @@ if (jRadioButtonFlushDNS.isSelected()){
                             XMLStream.close();
                         }//end of try to close stream
                         catch (IOException ex) {
-                            ex.printStackTrace();
+                            System.out.println("Error IOException " + ex.getMessage());
+                            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                         }//end of catch IOEception
                     }
                     //Removes any existing WLAN profile with the same name as the new Profile
-                    String RemoveWLANStudent = "cmd.exe /c netsh wlan delete profile name=" + WS.StudentFileName;
+                    String RemoveWLANStudent = "cmd.exe /c netsh wlan delete profile name=" + WifiSetupClass.StudentFileName;
                     String CreateWLANStudent = "cmd.exe /c netsh wlan add profile filename=" + WS.StudentTempDir;
                     p = Runtime.getRuntime().exec(RemoveWLANStudent);
                     System.out.println("Process p = " + p.toString());
@@ -473,13 +475,14 @@ if (jRadioButtonFlushDNS.isSelected()){
                     InputStream XMLStream = null;
 
                     try {
-                        XMLStream = (getClass().getResourceAsStream(WS.StaffFileName + ".xml"));
+                        XMLStream = (getClass().getResourceAsStream(WifiSetupClass.StaffFileName + ".xml"));
                         System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
                         Files.copy(XMLStream, WS.StaffTempDir, REPLACE_EXISTING);
                         jCheckBoxStaff.setSelected(false);
                     }//end of try to get resource and save it to temp
-                    catch (IOException e) {
-                    e.printStackTrace();
+                    catch (IOException ex) {
+                    System.out.println("Error IOException " + ex.getMessage());
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }//end of catch IOEception
                     finally {
 
@@ -488,12 +491,13 @@ if (jRadioButtonFlushDNS.isSelected()){
                             XMLStream.close();
                         }//end of try to close stream
                         catch (IOException ex) {
-                            ex.printStackTrace();
+                            System.out.println("Error IOException " + ex.getMessage());
+                            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                         }//end of catch IOEception
                     }//end of finally block
 
                     //Removes any existing WLAN profile with the same name as the new Profile
-                    String RemoveWLANStaff = "cmd.exe /c netsh wlan delete profile name=" + WS.StaffFileName;
+                    String RemoveWLANStaff = "cmd.exe /c netsh wlan delete profile name=" + WifiSetupClass.StaffFileName;
                     String CreateWLANStaff = "cmd.exe /c netsh wlan add profile filename=" + WS.StaffTempDir;
                     p = Runtime.getRuntime().exec(RemoveWLANStaff);
                     System.out.println("Process p = " + p.toString());
@@ -525,13 +529,14 @@ if (jRadioButtonFlushDNS.isSelected()){
                     InputStream XMLStream = null;
 
                     try {
-                        XMLStream = (getClass().getResourceAsStream(WS.Campus_UserFileName + ".xml"));
+                        XMLStream = (getClass().getResourceAsStream(WifiSetupClass.Campus_UserFileName + ".xml"));
                         System.out.println("Total file size to read (in bytes) : " + XMLStream.available());
                         Files.copy(XMLStream, WS.Campus_UserTempDir, REPLACE_EXISTING);;
                         jCheckBoxCampus_User.setSelected(false);
                     }//end of try to get resource and save it to temp
-                    catch (IOException e) {
-                    e.printStackTrace();
+                    catch (IOException ex) {
+                    System.out.println("Error IOException " + ex.getMessage());
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }//end of catch IOEception
                     finally {
 
@@ -540,11 +545,12 @@ if (jRadioButtonFlushDNS.isSelected()){
                             XMLStream.close();
                         }//end of try to close stream
                         catch (IOException ex) {
-                            ex.printStackTrace();
+                            System.out.println("Error IOException " + ex.getMessage());
+                            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                         }//end of catch IOEception
                     }
                     //Removes any existing WLAN profile with the same name as the new Profile
-                    String RemoveWLANCampus_User = "cmd.exe /c netsh wlan delete profile name=" + WS.Campus_UserFileName;
+                    String RemoveWLANCampus_User = "cmd.exe /c netsh wlan delete profile name=" + WifiSetupClass.Campus_UserFileName;
                     String CreateWLANCampus_User = "cmd.exe /c netsh wlan add profile filename=" + WS.Campus_UserTempDir;
                     p = Runtime.getRuntime().exec(RemoveWLANCampus_User);
                     System.out.println("Process p = " + p.toString());
@@ -703,13 +709,11 @@ if (reply == JOptionPane.YES_OPTION)
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new MainJFrame();
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            JFrame frame = new MainJFrame();
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
         });
     }
 
