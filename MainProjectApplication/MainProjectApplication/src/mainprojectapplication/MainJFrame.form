@@ -412,6 +412,9 @@
             <Property name="text" type="java.lang.String" value="Empty Recycling Bin"/>
             <Property name="toolTipText" type="java.lang.String" value="Empties the Recycling Bin of all deleted files."/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonRecyclingBinActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

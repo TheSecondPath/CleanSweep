@@ -18,8 +18,6 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author Jeffrey Thompson
@@ -218,6 +216,11 @@ public class MainJFrame extends javax.swing.JFrame {
         RadiobuttonGroupCleanSweep.add(jRadioButtonRecyclingBin);
         jRadioButtonRecyclingBin.setText("Empty Recycling Bin");
         jRadioButtonRecyclingBin.setToolTipText("Empties the Recycling Bin of all deleted files.");
+        jRadioButtonRecyclingBin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRecyclingBinActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -361,57 +364,69 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_ExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_ExecuteActionPerformed
-    int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to execute?", "Execute",  JOptionPane.YES_NO_OPTION);
-    if (reply == JOptionPane.YES_OPTION)
-    {
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to execute?", "Execute", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
 
+            if (jRadioButtonDiskCleaner.isSelected()) {
+                try {
+                    //runs diskcleanerclass if cleanerbox is selected
+                    DiskCleanerClass DC = new DiskCleanerClass();
+                    RadiobuttonGroupCleanSweep.clearSelection();
 
-        if(jRadioButtonDiskCleaner.isSelected()){
-    try {
-       //runs diskcleanerclass if cleanerbox is selected
-        DiskCleanerClass DC = new DiskCleanerClass();
-        Button_Execute.setEnabled(true);
-    
-    } catch (AWTException ex) {
-        System.out.println("Error " + ex.getMessage());
-        Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-    }
-}
-if (jRadioButtonDefragment.isSelected()){
-    //runs diskdefragclass if defragbox is selected
-    DiskDefragClass DF = new DiskDefragClass();
-    
-  Button_Execute.setEnabled(true);
-  
-}
-if (jRadioButtonDiskCheck.isSelected()) {
-    CheckerClass CC = new CheckerClass();
-           //runs diskcheckerclass if checkerbox is selected 
-}
-if (jRadioButtonFlushDNS.isSelected()){
-    //runs flushDNSclass if flushDNSbox is selected
-    FlushDNSClass FDNS = new FlushDNSClass();
-    Process p = null;
-     String Renew = "cmd.exe /c start cmd.exe /c start ipconfig /renew";
-    try {
-        p = Runtime.getRuntime().exec(Renew);
-    } catch (IOException ex) {
-        System.out.println("Error " + ex.getMessage());
-        Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-    }
-}
-}
+                } catch (AWTException ex) {
+                    System.out.println("Error " + ex.getMessage());
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (jRadioButtonDefragment.isSelected()) {
+                //runs diskdefragclass if defragbox is selected
+                DiskDefragClass DF = new DiskDefragClass();
+
+                RadiobuttonGroupCleanSweep.clearSelection();
+
+            }
+            if (jRadioButtonDiskCheck.isSelected()) {
+                CheckerClass CC = new CheckerClass();
+                RadiobuttonGroupCleanSweep.clearSelection();
+                //runs diskcheckerclass if checkerbox is selected 
+            }
+            if (jRadioButtonFlushDNS.isSelected()) {
+                //runs flushDNSclass if flushDNSbox is selected
+                FlushDNSClass FDNS = new FlushDNSClass();
+                Process p = null;
+                String Renew = "cmd.exe /c start cmd.exe /c start ipconfig /renew";
+                try {
+                    p = Runtime.getRuntime().exec(Renew);
+                    RadiobuttonGroupCleanSweep.clearSelection();
+                } catch (IOException ex) {
+                    System.out.println("Error " + ex.getMessage());
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (jRadioButtonRecyclingBin.isSelected()){
+                RecyclingBinClass Recycle = new RecyclingBinClass();
+                Process p = null;
+                
+                try {
+                    p = Runtime.getRuntime().exec(Recycle.EmptyRecyclingBin);
+                    p = Runtime.getRuntime().exec(Recycle.IconRefresh);
+                    RadiobuttonGroupCleanSweep.clearSelection();
+                } catch (IOException ex) {
+                    System.out.println("Error " + ex.getMessage());
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_Button_ExecuteActionPerformed
 
     @SuppressWarnings("empty-statement")
     private void jButton_ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConnectActionPerformed
-        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to connect?", "Wi-Fi Connect",  JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION)
-        {
-   
-            if (jCheckBoxStudent.isSelected()){
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to connect?", "Wi-Fi Connect", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+
+            if (jCheckBoxStudent.isSelected()) {
 
                 WifiSetupClass WS;
                 WS = new WifiSetupClass();
@@ -434,8 +449,9 @@ if (jRadioButtonFlushDNS.isSelected()){
                     finally {
 
                         try {
-                            if (XMLStream != null)
-                            XMLStream.close();
+                            if (XMLStream != null) {
+                                XMLStream.close();
+                            }
                         }//end of try to close stream
                         catch (IOException ex) {
                             System.out.println("Error IOException " + ex.getMessage());
@@ -451,12 +467,10 @@ if (jRadioButtonFlushDNS.isSelected()){
                     p = Runtime.getRuntime().exec(CreateWLANStudent);
                     System.out.println("Process p = " + p.toString());
                 }//end of try block for reading and saving the XML to the temp folder 
-
                 catch (NullPointerException ex) {
                     System.out.println("Error NullPointerException " + ex.getMessage());
                     Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }//end of catch NullPointerException
-
                 catch (IOException ex) {
                     System.out.println("Error IOException " + ex.getMessage());
                     Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -464,7 +478,7 @@ if (jRadioButtonFlushDNS.isSelected()){
 
             }//end of if statement jCheckBoxStudent.isSelected
 
-            if (jCheckBoxStaff.isSelected()){
+            if (jCheckBoxStaff.isSelected()) {
 
                 WifiSetupClass WS;
                 WS = new WifiSetupClass();
@@ -481,14 +495,15 @@ if (jRadioButtonFlushDNS.isSelected()){
                         jCheckBoxStaff.setSelected(false);
                     }//end of try to get resource and save it to temp
                     catch (IOException ex) {
-                    System.out.println("Error IOException " + ex.getMessage());
-                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Error IOException " + ex.getMessage());
+                        Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }//end of catch IOEception
                     finally {
 
                         try {
-                            if (XMLStream != null)
-                            XMLStream.close();
+                            if (XMLStream != null) {
+                                XMLStream.close();
+                            }
                         }//end of try to close stream
                         catch (IOException ex) {
                             System.out.println("Error IOException " + ex.getMessage());
@@ -505,12 +520,10 @@ if (jRadioButtonFlushDNS.isSelected()){
                     p = Runtime.getRuntime().exec(CreateWLANStaff);
                     System.out.println("Process p = " + p.toString());
                 }//end of try block for reading and saving the XML to the temp folder
-
                 catch (NullPointerException ex) {
                     System.out.println("Error NullPointerException " + ex.getMessage());
                     Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }//end of catch NullPointerException
-
                 catch (IOException ex) {
                     System.out.println("Error IOException " + ex.getMessage());
                     Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -518,7 +531,7 @@ if (jRadioButtonFlushDNS.isSelected()){
 
             }//end of if statement jCheckBoxStaff.isSelected
 
-            if (jCheckBoxCampus_User.isSelected()){
+            if (jCheckBoxCampus_User.isSelected()) {
 
                 WifiSetupClass WS;
                 WS = new WifiSetupClass();
@@ -535,14 +548,15 @@ if (jRadioButtonFlushDNS.isSelected()){
                         jCheckBoxCampus_User.setSelected(false);
                     }//end of try to get resource and save it to temp
                     catch (IOException ex) {
-                    System.out.println("Error IOException " + ex.getMessage());
-                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Error IOException " + ex.getMessage());
+                        Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }//end of catch IOEception
                     finally {
 
                         try {
-                            if (XMLStream != null)
-                            XMLStream.close();
+                            if (XMLStream != null) {
+                                XMLStream.close();
+                            }
                         }//end of try to close stream
                         catch (IOException ex) {
                             System.out.println("Error IOException " + ex.getMessage());
@@ -558,25 +572,23 @@ if (jRadioButtonFlushDNS.isSelected()){
                     p = Runtime.getRuntime().exec(CreateWLANCampus_User);
                     System.out.println("Process p = " + p.toString());
                 }//end of try block for reading and saving the XML to the temp folder 
-
                 catch (NullPointerException ex) {
                     System.out.println("Error NullPointerException " + ex.getMessage());
                     Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }//end of catch NullPointerException
-
                 catch (IOException ex) {
                     System.out.println("Error IOException " + ex.getMessage());
                     Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }//end of catch IOException
 
             }//end of if statement jCheckBoxCampus_User.isSelected
-        
+
         }//end of if statement jOptionPane reply
-    //end of jButton_ConnectActionPerformed(IDE disallows comments on Auto-generated brackets)
+        //end of jButton_ConnectActionPerformed(IDE disallows comments on Auto-generated brackets)
     }//GEN-LAST:event_jButton_ConnectActionPerformed
 
     private void jMenuItemFAQPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFAQPageActionPerformed
-    if(Desktop.isDesktopSupported()){
+        if (Desktop.isDesktopSupported()) {
             try {
                 //opens tech commons webpage in default browser
                 Desktop.getDesktop().browse(new URI("https://www.fairmontstate.edu/it/tech-commons/information-technology-getting-started-guide-students"));
@@ -591,37 +603,35 @@ if (jRadioButtonFlushDNS.isSelected()){
     }//GEN-LAST:event_jMenuItemFAQPageActionPerformed
 
     private void jMenuItemCampusDirectoryPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCampusDirectoryPageActionPerformed
- 
-    if(Desktop.isDesktopSupported())
-{
-        try {
-            //opens faculty page in default browser
-            Desktop.getDesktop().browse(new URI("https://webfors.fairmontstate.edu/pls/prod_dad/bzpkedir.P_DisplayDirectory"));
-        } catch (IOException ex) {
-            System.out.println("Error " + ex.getMessage());
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
-            System.out.println("Error " + ex.getMessage());
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-}        // TODO add your handling code here:
+
+        if (Desktop.isDesktopSupported()) {
+            try {
+                //opens faculty page in default browser
+                Desktop.getDesktop().browse(new URI("https://webfors.fairmontstate.edu/pls/prod_dad/bzpkedir.P_DisplayDirectory"));
+            } catch (IOException ex) {
+                System.out.println("Error " + ex.getMessage());
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (URISyntaxException ex) {
+                System.out.println("Error " + ex.getMessage());
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemCampusDirectoryPageActionPerformed
 
     private void jMenuVMWareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVMWareActionPerformed
 
-        if(Desktop.isDesktopSupported())
-{
-        try {
-            //opens download page for VMWare Horizon
-            Desktop.getDesktop().browse(new URI("https://my.vmware.com/web/vmware/info?slug=desktop_end_user_computing/vmware_horizon_clients/4_0"));
-        } catch (IOException ex) {
-            System.out.println("Error " + ex.getMessage());
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
-            System.out.println("Error " + ex.getMessage());
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        if (Desktop.isDesktopSupported()) {
+            try {
+                //opens download page for VMWare Horizon
+                Desktop.getDesktop().browse(new URI("https://my.vmware.com/web/vmware/info?slug=desktop_end_user_computing/vmware_horizon_clients/4_0"));
+            } catch (IOException ex) {
+                System.out.println("Error " + ex.getMessage());
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (URISyntaxException ex) {
+                System.out.println("Error " + ex.getMessage());
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-}
     }//GEN-LAST:event_jMenuVMWareActionPerformed
 
     private void jCheckBoxCampus_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCampus_UserActionPerformed
@@ -659,27 +669,29 @@ if (jRadioButtonFlushDNS.isSelected()){
     }//GEN-LAST:event_jRadioButtonDefragmentActionPerformed
 
     private void Menu_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_ExitActionPerformed
-int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Close?",  JOptionPane.YES_NO_OPTION);
-if (reply == JOptionPane.YES_OPTION)
-{
-   System.exit(0);
-}          // TODO add your handling code here:
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Close?", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }          // TODO add your handling code here:
     }//GEN-LAST:event_Menu_ExitActionPerformed
 
     private void jMenuItemPlaceTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPlaceTicketActionPerformed
-     int reply = JOptionPane.showConfirmDialog(null, "Did you want to send a support email to: help@fairmontstate.edu?", "Email",  JOptionPane.YES_NO_OPTION);
-if (reply == JOptionPane.YES_OPTION)
-{
-             // TODO add your handling cod
-        try {
-            SupportTicketClass STC = new SupportTicketClass();        // TODO add your handling code here:
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        int reply = JOptionPane.showConfirmDialog(null, "Did you want to send a support email to: help@fairmontstate.edu?", "Email", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            // TODO add your handling cod
+            try {
+                SupportTicketClass STC = new SupportTicketClass();        // TODO add your handling code here:
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-}
     }//GEN-LAST:event_jMenuItemPlaceTicketActionPerformed
+
+    private void jRadioButtonRecyclingBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRecyclingBinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonRecyclingBinActionPerformed
 
     /**
      * @param args the command line arguments
