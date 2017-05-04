@@ -14,10 +14,8 @@ public class RecyclingBinClass {
     String IconRefresh;
 
     public RecyclingBinClass() {
-        this.EmptyRecyclingBin = "powershell.exe -command \"$Shell"
-                + " = New-Object -ComObject Shell.Application;$RecycleBin = "
-                + "$Shell.Namespace(0xA);$RecycleBin.Items() | foreach{Remove-Item"
-                + " $_.Path -Recurse -Confirm:$false}\"";
+        this.EmptyRecyclingBin = "powershell.exe -command \"$Shell = New-Object -ComObject Shell.Application;$RecycleBin = "
+                + "$Shell.Namespace(0xA);$RecycleBin.Items() | foreach{Remove-Item $_.Path -Recurse -Confirm:$false}\"";
         this.IconRefresh = "wmic.exe process where name=\"explorer.exe\" call TERMINATE";
         
     }
